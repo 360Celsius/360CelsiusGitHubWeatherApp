@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1.0"
+        android:background="#ff6d00">
+
+        <TextView
+            android:id="@+id/day_one_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_centerHorizontal="true"
+            android:textSize="14dp"
+            android:textColor="#FFFFFF"
+            android:text="Sunday" />
+
+        <TextView
+            android:id="@+id/day_one_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/day_one_name"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="8dp"
+            android:textSize="12dp"
+            android:textColor="#FFFFFF"
+            android:text="14/12/1013" />
+
+        <ImageView
+            android:id="@+id/day_one_wheather_indicator_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/day_one_date"
+            android:layout_marginTop="8dp"
+            android:src="@drawable/heavy_rain"/>
+
+        <TextView
+            android:id="@+id/day_one_weather_discription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/day_one_wheather_indicator_icon"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="8dp"
+            android:textSize="12dp"
+            android:textColor="#FFFFFF"
+            android:text="LIGHT RAIN" />
+
+        <TextView
+            android:id="@+id/day_one_min_max_temp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/day_one_weather_discription"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="8dp"
+            android:textSize="12dp"
+            android:textColor="#FFFFFF"
+            android:text="14&#xb0;/18&#xb0;" />
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1.0"
+        android:background="#ff9100">
+
+        <TextView
+            android:id="@+id/day_two_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="16dp"
+            android:textSize="14dp"
+            android:textColor="#FFFFFF"
+            android:text="Monday" />
+
+        <TextView
+            android:id="@+id/day_two_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/day_two_name"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="8dp"
+            android:textSize="12dp"
+            android:textColor="#FFFFFF"
+            android:text="15/12/1013" />
+
+        <ImageView
+            android:id="@+id/day_two_wheather_indicator_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/day_two_date"
+            android:layout_marginTop="8dp"
+            android:src="@drawable/heavy_rain"/>
+
+        <TextView
+            android:id="@+id/day_two_weather_discription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/day_two_wheather_indicator_icon"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="8dp"
+            android:textSize="12dp"
+            android:textColor="#FFFFFF"
+            android:text="LIGHT RAIN" />
+
+        <TextView
+            android:id="@+id/day_two_min_max_temp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/day_two_weather_discription"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="8dp"
+            android:textSize="12dp"
+            android:textColor="#FFFFFF"
+            android:text="14&#xb0;/18&#xb0;" />
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1.0"
+        android:background="#ffab40">
+
+        <TextView
+            android:id="@+id/day_three_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="16dp"
+            android:textSize="14dp"
+            android:textColor="#FFFFFF"
+            android:text="Tuesday" />
+
+        <TextView
+            android:id="@+id/day_three_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/day_three_name"
+            android:layout_marginTop="8dp"
+            android:textSize="12dp"
+            android:textColor="#FFFFFF"
+            android:text="16/12/1013" />
+
+        <ImageView
+            android:id="@+id/day_three_wheather_indicator_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/day_three_date"
+            android:layout_marginTop="8dp"
+            android:src="@drawable/heavy_rain"/>
+
+        <TextView
+            android:id="@+id/day_three_weather_discription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/day_three_wheather_indicator_icon"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="8dp"
+            android:textSize="12dp"
+            android:textColor="#FFFFFF"
+            android:text="LIGHT RAIN" />
+
+        <TextView
+            android:id="@+id/day_three_min_max_temp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/day_three_weather_discription"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="8dp"
+            android:textSize="12dp"
+            android:textColor="#FFFFFF"
+            android:text="14&#xb0;/18&#xb0;" />
+
+    </RelativeLayout>
+
+
+
+</LinearLayout>

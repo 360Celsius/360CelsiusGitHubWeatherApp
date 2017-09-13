@@ -1,0 +1,670 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:requiresFadingEdge="horizontal"
+        android:background="#33C0392B"
+        android:layout_marginTop="0dp" >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/one"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1.0"
+                android:orientation="horizontal" >
+
+                <RelativeLayout
+                    android:layout_width="120dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1.0"
+                    android:background="#ff6d00">
+
+                    <TextView
+                        android:id="@+id/day_one_date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="4dp"
+                        android:textSize="12dp"
+                        android:textColor="#FFFFFF"
+                        android:text="14/12/1013" />
+
+                    <ImageView
+                        android:id="@+id/day_one_wheather_indicator_icon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_below="@+id/day_one_date"
+                        android:layout_marginTop="0dp"
+                        android:src="@drawable/heavy_rain"/>
+
+
+                    <TextView
+                        android:id="@+id/day_one_min_max_temp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/day_one_wheather_indicator_icon"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="0dp"
+                        android:textSize="12dp"
+                        android:textColor="#FFFFFF"
+                        android:text="14&#xb0;/18&#xb0;" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="120dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1.0"
+                    android:background="#ff9100">
+
+                    <TextView
+                        android:id="@+id/day_two_date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="4dp"
+                        android:textSize="12dp"
+                        android:textColor="#FFFFFF"
+                        android:text="15/12/1013" />
+
+                    <ImageView
+                        android:id="@+id/day_two_wheather_indicator_icon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_below="@+id/day_two_date"
+                        android:layout_marginTop="0dp"
+                        android:src="@drawable/heavy_rain"/>
+
+
+                    <TextView
+                        android:id="@+id/day_two_min_max_temp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/day_two_wheather_indicator_icon"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="0dp"
+                        android:textSize="12dp"
+                        android:textColor="#FFFFFF"
+                        android:text="14&#xb0;/18&#xb0;" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="120dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1.0"
+                    android:background="#ffab40">
+
+                    <TextView
+                        android:id="@+id/day_three_date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="4dp"
+                        android:textSize="12dp"
+                        android:textColor="#FFFFFF"
+                        android:text="16/12/1013" />
+
+                    <ImageView
+                        android:id="@+id/day_three_wheather_indicator_icon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_below="@+id/day_three_date"
+                        android:layout_marginTop="0dp"
+                        android:src="@drawable/heavy_rain"/>
+
+
+                    <TextView
+                        android:id="@+id/day_three_min_max_temp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/day_three_wheather_indicator_icon"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="0dp"
+                        android:textSize="12dp"
+                        android:textColor="#FFFFFF"
+                        android:text="14&#xb0;/18&#xb0;" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="120dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1.0"
+                    android:background="#ffd180">
+
+                    <TextView
+                        android:id="@+id/day_four_date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="4dp"
+                        android:textSize="12dp"
+                        android:textColor="#FFFFFF"
+                        android:text="17/12/1013" />
+
+                    <ImageView
+                        android:id="@+id/day_four_wheather_indicator_icon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_below="@+id/day_four_date"
+                        android:layout_marginTop="0dp"
+                        android:src="@drawable/heavy_rain"/>
+
+
+                    <TextView
+                        android:id="@+id/day_four_min_max_temp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/day_four_wheather_indicator_icon"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="0dp"
+                        android:textSize="12dp"
+                        android:textColor="#FFFFFF"
+                        android:text="14&#xb0;/18&#xb0;" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="120dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1.0"
+                    android:background="#e65100">
+
+                    <TextView
+                        android:id="@+id/day_five_date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="4dp"
+                        android:textSize="12dp"
+                        android:textColor="#FFFFFF"
+                        android:text="18/12/1013" />
+
+                    <ImageView
+                        android:id="@+id/day_five_wheather_indicator_icon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_below="@+id/day_five_date"
+                        android:layout_marginTop="0dp"
+                        android:src="@drawable/heavy_rain"/>
+
+
+                    <TextView
+                        android:id="@+id/day_five_min_max_temp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/day_five_wheather_indicator_icon"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="0dp"
+                        android:textSize="12dp"
+                        android:textColor="#FFFFFF"
+                        android:text="14&#xb0;/18&#xb0;" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="120dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1.0"
+                    android:background="#ef6c00">
+
+                    <TextView
+                        android:id="@+id/day_six_date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="4dp"
+                        android:textSize="12dp"
+                        android:textColor="#FFFFFF"
+                        android:text="19/12/1013" />
+
+                    <ImageView
+                        android:id="@+id/day_six_wheather_indicator_icon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_below="@+id/day_six_date"
+                        android:layout_marginTop="0dp"
+                        android:src="@drawable/heavy_rain"/>
+
+
+                    <TextView
+                        android:id="@+id/day_six_min_max_temp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/day_six_wheather_indicator_icon"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="0dp"
+                        android:textSize="12dp"
+                        android:textColor="#FFFFFF"
+                        android:text="14&#xb0;/18&#xb0;" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="120dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1.0"
+                    android:background="#f57c00">
+
+                    <TextView
+                        android:id="@+id/day_seven_date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="4dp"
+                        android:textSize="12dp"
+                        android:textColor="#FFFFFF"
+                        android:text="20/12/1013" />
+
+                    <ImageView
+                        android:id="@+id/day_seven_wheather_indicator_icon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_below="@+id/day_seven_date"
+                        android:layout_marginTop="0dp"
+                        android:src="@drawable/heavy_rain"/>
+
+
+                    <TextView
+                        android:id="@+id/day_seven_min_max_temp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/day_seven_wheather_indicator_icon"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="0dp"
+                        android:textSize="12dp"
+                        android:textColor="#FFFFFF"
+                        android:text="14&#xb0;/18&#xb0;" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="120dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1.0"
+                    android:background="#fb8c00">
+
+                    <TextView
+                        android:id="@+id/day_eight_date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="4dp"
+                        android:textSize="12dp"
+                        android:textColor="#FFFFFF"
+                        android:text="21/12/1013" />
+
+                    <ImageView
+                        android:id="@+id/day_eight_wheather_indicator_icon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_below="@+id/day_eight_date"
+                        android:layout_marginTop="0dp"
+                        android:src="@drawable/heavy_rain"/>
+
+
+                    <TextView
+                        android:id="@+id/day_eight_min_max_temp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/day_eight_wheather_indicator_icon"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="0dp"
+                        android:textSize="12dp"
+                        android:textColor="#FFFFFF"
+                        android:text="14&#xb0;/18&#xb0;" />
+
+                </RelativeLayout>
+
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/two"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1.0"
+                android:orientation="horizontal" >
+
+
+                <RelativeLayout
+                    android:layout_width="120dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1.0"
+                    android:background="#ff9800">
+
+                    <TextView
+                        android:id="@+id/day_nine_date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="4dp"
+                        android:textSize="12dp"
+                        android:textColor="#FFFFFF"
+                        android:text="22/12/1013" />
+
+                    <ImageView
+                        android:id="@+id/day_nine_wheather_indicator_icon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_below="@+id/day_nine_date"
+                        android:layout_marginTop="0dp"
+                        android:src="@drawable/heavy_rain"/>
+
+
+                    <TextView
+                        android:id="@+id/day_nine_min_max_temp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/day_nine_wheather_indicator_icon"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="0dp"
+                        android:textSize="12dp"
+                        android:textColor="#FFFFFF"
+                        android:text="14&#xb0;/18&#xb0;" />
+
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="120dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1.0"
+                    android:background="#ffa726">
+
+                    <TextView
+                        android:id="@+id/day_ten_date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="4dp"
+                        android:textSize="12dp"
+                        android:textColor="#FFFFFF"
+                        android:text="23/12/1013" />
+
+                    <ImageView
+                        android:id="@+id/day_ten_wheather_indicator_icon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_below="@+id/day_ten_date"
+                        android:layout_marginTop="0dp"
+                        android:src="@drawable/heavy_rain"/>
+
+
+                    <TextView
+                        android:id="@+id/day_ten_min_max_temp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/day_ten_wheather_indicator_icon"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="0dp"
+                        android:textSize="12dp"
+                        android:textColor="#FFFFFF"
+                        android:text="14&#xb0;/18&#xb0;" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="120dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1.0"
+                    android:background="#ffb74d">
+
+                    <TextView
+                        android:id="@+id/day_eleven_date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="4dp"
+                        android:textSize="12dp"
+                        android:textColor="#FFFFFF"
+                        android:text="24/12/1013" />
+
+                    <ImageView
+                        android:id="@+id/day_eleven_wheather_indicator_icon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_below="@+id/day_eleven_date"
+                        android:layout_marginTop="0dp"
+                        android:src="@drawable/heavy_rain"/>
+
+
+                    <TextView
+                        android:id="@+id/day_eleven_min_max_temp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/day_eleven_wheather_indicator_icon"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="0dp"
+                        android:textSize="12dp"
+                        android:textColor="#FFFFFF"
+                        android:text="14&#xb0;/18&#xb0;" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="120dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1.0"
+                    android:background="#ffcc80">
+
+                    <TextView
+                        android:id="@+id/day_twelve_date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="4dp"
+                        android:textSize="12dp"
+                        android:textColor="#FFFFFF"
+                        android:text="25/12/1013" />
+
+                    <ImageView
+                        android:id="@+id/day_twelve_wheather_indicator_icon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_below="@+id/day_twelve_date"
+                        android:layout_marginTop="0dp"
+                        android:src="@drawable/heavy_rain"/>
+
+
+                    <TextView
+                        android:id="@+id/day_twelve_min_max_temp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/day_twelve_wheather_indicator_icon"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="0dp"
+                        android:textSize="12dp"
+                        android:textColor="#FFFFFF"
+                        android:text="14&#xb0;/18&#xb0;" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="120dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1.0"
+                    android:background="#ffe0b2">
+
+                    <TextView
+                        android:id="@+id/day_thirteen_date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="4dp"
+                        android:textSize="12dp"
+                        android:textColor="#FFFFFF"
+                        android:text="26/12/1013" />
+
+                    <ImageView
+                        android:id="@+id/day_thirteen_wheather_indicator_icon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_below="@+id/day_thirteen_date"
+                        android:layout_marginTop="0dp"
+                        android:src="@drawable/heavy_rain"/>
+
+
+                    <TextView
+                        android:id="@+id/day_thirteen_min_max_temp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/day_thirteen_wheather_indicator_icon"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="0dp"
+                        android:textSize="12dp"
+                        android:textColor="#FFFFFF"
+                        android:text="14&#xb0;/18&#xb0;" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="120dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1.0"
+                    android:background="#ff6d00">
+
+                    <TextView
+                        android:id="@+id/day_fourteen_date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="4dp"
+                        android:textSize="12dp"
+                        android:textColor="#FFFFFF"
+                        android:text="27/12/1013" />
+
+                    <ImageView
+                        android:id="@+id/day_fourteen_wheather_indicator_icon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_below="@+id/day_fourteen_date"
+                        android:layout_marginTop="0dp"
+                        android:src="@drawable/heavy_rain"/>
+
+
+                    <TextView
+                        android:id="@+id/day_fourteen_min_max_temp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/day_fourteen_wheather_indicator_icon"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="0dp"
+                        android:textSize="12dp"
+                        android:textColor="#FFFFFF"
+                        android:text="14&#xb0;/18&#xb0;" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="120dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1.0"
+                    android:background="#ff9100">
+
+                    <TextView
+                        android:id="@+id/day_fifthteen_date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="4dp"
+                        android:textSize="12dp"
+                        android:textColor="#FFFFFF"
+                        android:text="28/12/1013" />
+
+                    <ImageView
+                        android:id="@+id/day_fifthteen_wheather_indicator_icon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_below="@+id/day_fifthteen_date"
+                        android:layout_marginTop="0dp"
+                        android:src="@drawable/heavy_rain"/>
+
+
+                    <TextView
+                        android:id="@+id/day_fifthteen_min_max_temp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/day_fifthteen_wheather_indicator_icon"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="0dp"
+                        android:textSize="12dp"
+                        android:textColor="#FFFFFF"
+                        android:text="14&#xb0;/18&#xb0;" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="120dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1.0"
+                    android:background="#ffab40">
+
+                    <TextView
+                        android:id="@+id/day_sixteen_date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="4dp"
+                        android:textSize="12dp"
+                        android:textColor="#FFFFFF"
+                        android:text="29/12/1013" />
+
+                    <ImageView
+                        android:id="@+id/day_sixteen_wheather_indicator_icon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_below="@+id/day_sixteen_date"
+                        android:layout_marginTop="0dp"
+                        android:src="@drawable/heavy_rain"/>
+
+
+                    <TextView
+                        android:id="@+id/day_sixteen_min_max_temp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/day_sixteen_wheather_indicator_icon"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="0dp"
+                        android:textSize="12dp"
+                        android:textColor="#FFFFFF"
+                        android:text="14&#xb0;/18&#xb0;" />
+                </RelativeLayout>
+
+
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </HorizontalScrollView>
+
+</LinearLayout>
