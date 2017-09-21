@@ -46,7 +46,7 @@
                         android:layout_centerHorizontal="true"
                         android:layout_below="@+id/day_one_date"
                         android:layout_marginTop="0dp"
-                        android:src="@drawable/heavy_rain"/>
+                        android:src="@drawable/clear_sky"/>
 
 
                     <TextView
@@ -85,7 +85,7 @@
                         android:layout_centerHorizontal="true"
                         android:layout_below="@+id/day_two_date"
                         android:layout_marginTop="0dp"
-                        android:src="@drawable/heavy_rain"/>
+                        android:src="@drawable/clear_sky"/>
 
 
                     <TextView
@@ -124,7 +124,7 @@
                         android:layout_centerHorizontal="true"
                         android:layout_below="@+id/day_three_date"
                         android:layout_marginTop="0dp"
-                        android:src="@drawable/heavy_rain"/>
+                        android:src="@drawable/clear_sky"/>
 
 
                     <TextView
@@ -163,7 +163,7 @@
                         android:layout_centerHorizontal="true"
                         android:layout_below="@+id/day_four_date"
                         android:layout_marginTop="0dp"
-                        android:src="@drawable/heavy_rain"/>
+                        android:src="@drawable/clear_sky"/>
 
 
                     <TextView
@@ -202,7 +202,7 @@
                         android:layout_centerHorizontal="true"
                         android:layout_below="@+id/day_five_date"
                         android:layout_marginTop="0dp"
-                        android:src="@drawable/heavy_rain"/>
+                        android:src="@drawable/clear_sky"/>
 
 
                     <TextView
@@ -241,7 +241,7 @@
                         android:layout_centerHorizontal="true"
                         android:layout_below="@+id/day_six_date"
                         android:layout_marginTop="0dp"
-                        android:src="@drawable/heavy_rain"/>
+                        android:src="@drawable/clear_sky"/>
 
 
                     <TextView
@@ -280,7 +280,7 @@
                         android:layout_centerHorizontal="true"
                         android:layout_below="@+id/day_seven_date"
                         android:layout_marginTop="0dp"
-                        android:src="@drawable/heavy_rain"/>
+                        android:src="@drawable/clear_sky"/>
 
 
                     <TextView
@@ -319,7 +319,7 @@
                         android:layout_centerHorizontal="true"
                         android:layout_below="@+id/day_eight_date"
                         android:layout_marginTop="0dp"
-                        android:src="@drawable/heavy_rain"/>
+                        android:src="@drawable/clear_sky"/>
 
 
                     <TextView
@@ -370,7 +370,7 @@
                         android:layout_centerHorizontal="true"
                         android:layout_below="@+id/day_nine_date"
                         android:layout_marginTop="0dp"
-                        android:src="@drawable/heavy_rain"/>
+                        android:src="@drawable/clear_sky"/>
 
 
                     <TextView
@@ -410,7 +410,7 @@
                         android:layout_centerHorizontal="true"
                         android:layout_below="@+id/day_ten_date"
                         android:layout_marginTop="0dp"
-                        android:src="@drawable/heavy_rain"/>
+                        android:src="@drawable/clear_sky"/>
 
 
                     <TextView
@@ -449,7 +449,7 @@
                         android:layout_centerHorizontal="true"
                         android:layout_below="@+id/day_eleven_date"
                         android:layout_marginTop="0dp"
-                        android:src="@drawable/heavy_rain"/>
+                        android:src="@drawable/clear_sky"/>
 
 
                     <TextView
@@ -488,7 +488,7 @@
                         android:layout_centerHorizontal="true"
                         android:layout_below="@+id/day_twelve_date"
                         android:layout_marginTop="0dp"
-                        android:src="@drawable/heavy_rain"/>
+                        android:src="@drawable/clear_sky"/>
 
 
                     <TextView
@@ -527,7 +527,7 @@
                         android:layout_centerHorizontal="true"
                         android:layout_below="@+id/day_thirteen_date"
                         android:layout_marginTop="0dp"
-                        android:src="@drawable/heavy_rain"/>
+                        android:src="@drawable/clear_sky"/>
 
 
                     <TextView
@@ -566,7 +566,7 @@
                         android:layout_centerHorizontal="true"
                         android:layout_below="@+id/day_fourteen_date"
                         android:layout_marginTop="0dp"
-                        android:src="@drawable/heavy_rain"/>
+                        android:src="@drawable/clear_sky"/>
 
 
                     <TextView
@@ -602,10 +602,10 @@
                         android:id="@+id/day_fifthteen_wheather_indicator_icon"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_centerHorizontal="true"  
+                        android:layout_centerHorizontal="true"
                         android:layout_below="@+id/day_fifthteen_date"
                         android:layout_marginTop="0dp"
-                        android:src="@drawable/heavy_rain"/>
+                        android:src="@drawable/clear_sky"/>
 
 
                     <TextView
@@ -644,7 +644,7 @@
                         android:layout_centerHorizontal="true"
                         android:layout_below="@+id/day_sixteen_date"
                         android:layout_marginTop="0dp"
-                        android:src="@drawable/heavy_rain"/>
+                        android:src="@drawable/clear_sky"/>
 
 
                     <TextView

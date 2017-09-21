@@ -16,6 +16,16 @@ public class FiveDaysWeatherQueryResponce {
     private String icon;
     private String speed;
     private String deg;
+    private String description;
+
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
     public FiveDaysWeatherQueryResponce() {
     }

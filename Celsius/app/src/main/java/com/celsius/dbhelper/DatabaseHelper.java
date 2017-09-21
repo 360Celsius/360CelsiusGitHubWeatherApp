@@ -332,6 +332,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     fiveDaysWeatherItem.setIcon(cursor.getString(cursor.getColumnIndex(DATABASE_TABLE_FIVEDAYS_WEATHER_COLUMN_ICON_KEY)));
                     fiveDaysWeatherItem.setSpeed(cursor.getString(cursor.getColumnIndex(DATABASE_TABLE_FIVEDAYS_WEATHER_COLUMN_WIND_SPEED_KEY)));
                     fiveDaysWeatherItem.setDeg(cursor.getString(cursor.getColumnIndex(DATABASE_TABLE_FIVEDAYS_WEATHER_COLUMN_WIND_DEG_KEY)));
+                    fiveDaysWeatherItem.setDescription(cursor.getString(cursor.getColumnIndex(DATABASE_TABLE_FIVEDAYS_WEATHER_COLUMN_DESCRIPTION_KEY)));
                     fiveDaysWeatherList.add(fiveDaysWeatherItem);
 
 

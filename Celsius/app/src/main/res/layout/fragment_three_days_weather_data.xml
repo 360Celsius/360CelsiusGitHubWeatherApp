@@ -38,7 +38,7 @@
             android:layout_centerHorizontal="true"
             android:layout_below="@+id/day_one_date"
             android:layout_marginTop="8dp"
-            android:src="@drawable/heavy_rain"/>
+            android:src="@drawable/clear_sky"/>
 
         <TextView
             android:id="@+id/day_one_weather_discription"
@@ -99,7 +99,7 @@
             android:layout_centerHorizontal="true"
             android:layout_below="@+id/day_two_date"
             android:layout_marginTop="8dp"
-            android:src="@drawable/heavy_rain"/>
+            android:src="@drawable/clear_sky"/>
 
         <TextView
             android:id="@+id/day_two_weather_discription"
@@ -160,7 +160,7 @@
             android:layout_centerHorizontal="true"
             android:layout_below="@+id/day_three_date"
             android:layout_marginTop="8dp"
-            android:src="@drawable/heavy_rain"/>
+            android:src="@drawable/clear_sky"/>
 
         <TextView
             android:id="@+id/day_three_weather_discription"

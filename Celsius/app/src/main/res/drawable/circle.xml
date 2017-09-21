@@ -18,8 +18,8 @@
             <solid android:color="#E67E22" />
 
             <size
-                android:width="180dp"
-                android:height="180dp" />
+                android:width="200dp"
+                android:height="200dp" />
         </shape>
     </item>
 

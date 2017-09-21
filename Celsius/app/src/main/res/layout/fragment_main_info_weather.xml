@@ -112,8 +112,8 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_marginLeft="17.5dp"
-            android:layout_marginTop="32dp"
-            android:src="@drawable/heavy_rain" />
+            android:layout_marginTop="30dp"
+            android:src="@drawable/clear_sky" />
 
 
         <TextView
@@ -149,7 +149,7 @@
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/current_weather_wrapper"
         android:layout_marginLeft="17.5dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="5dp"
         android:orientation="horizontal">
 
 
@@ -208,7 +208,7 @@
         android:layout_alignParentRight="true"
         android:layout_below="@+id/current_weather_wrapper"
         android:layout_marginRight="17.5dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="5dp"
         android:orientation="horizontal">
 
 
@@ -261,6 +261,8 @@
 
 
     </LinearLayout>
+
+
 
 
 </RelativeLayout>

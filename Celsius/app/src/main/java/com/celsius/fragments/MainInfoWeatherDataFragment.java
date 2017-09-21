@@ -18,6 +18,7 @@ import com.celsius.dbhelper.CurrentWeatherQueryResponce;
 import com.celsius.interfaces.DBHelperListenerInterface;
 import com.celsius.services.WeatherPullService;
 import com.celsius.services.WeatherPullServicePutExtraKry;
+import com.celsius.utils.Tools;
 
 import java.util.ArrayList;
 
@@ -91,7 +92,7 @@ public class MainInfoWeatherDataFragment extends Fragment {
 
 
     @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+    public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         avgTemp.setText(currentWeatherList.get(0).getTemp()+" \u2103");
         maxTemp.setText(currentWeatherList.get(0).getTemp_max()+" \u2103");//" \u2109"
@@ -99,8 +100,7 @@ public class MainInfoWeatherDataFragment extends Fragment {
         humidity.setText(currentWeatherList.get(0).getHumidity());
         atmosphericPressure.setText(currentWeatherList.get(0).getPresure());
         avgTempDescription.setText(currentWeatherList.get(0).getDescription().toUpperCase());
-
-
+        weatherVisualIndicatir.setImageDrawable(getResources().getDrawable(Tools.convertDescriptionToImageWeather(getActivity().getApplicationContext(),currentWeatherList.get(0).getIcon())));
 
 
     }
