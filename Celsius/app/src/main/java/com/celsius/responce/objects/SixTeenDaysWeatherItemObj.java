@@ -9,6 +9,16 @@ public class SixTeenDaysWeatherItemObj {
     DtObj dt;
     TempObj temp;
 
+    public CurrentWeatherItemObj getWeather() {
+        return weather;
+    }
+
+    public void setWeather(CurrentWeatherItemObj weather) {
+        this.weather = weather;
+    }
+
+    CurrentWeatherItemObj weather;
+
     public SixTeenDaysWeatherItemObj() {
     }
 

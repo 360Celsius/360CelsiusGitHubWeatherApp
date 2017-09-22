@@ -4,6 +4,7 @@ import android.content.Context;
 import android.util.Log;
 
 import com.celsius.dbhelper.FiveDaysWeatherQueryResponce;
+import com.celsius.dbhelper.SixTeenDaysWeatherQueryResponce;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -86,7 +87,7 @@ public class Tools {
         return date;
     }
 
-    public static ArrayList<FiveDaysWeatherQueryResponce> filteredList(ArrayList<FiveDaysWeatherQueryResponce> list, int daysLimit){
+    public static ArrayList<FiveDaysWeatherQueryResponce> fiveDaysfilteredList( ArrayList<FiveDaysWeatherQueryResponce> list, int daysLimit){
 
         String resultPattern = "yy/MM/dd HH:mm:ss";
         DateFormat dateFormat = new SimpleDateFormat(resultPattern, new Locale("en", Locale.getDefault().getCountry()));
@@ -107,7 +108,7 @@ public class Tools {
                     break;
                 }
 
-                Log.e("difftest",String.valueOf(days));
+                //Log.e("difftest",String.valueOf(days));
             }
             if(newList.size()==daysLimit){
                 break;
@@ -120,4 +121,5 @@ public class Tools {
 
         return newList;
     }
+
 }

@@ -107,7 +107,7 @@ public class FIveDaysWeatherDataFragment extends Fragment{
 
         fiveDaysWeatherList = new ArrayList<>();
         fiveDaysWeatherList = mCallback.getDBhelper().getFiveDaysWeather();
-        onlyFiveDaysWeatherList = Tools.filteredList(fiveDaysWeatherList,5);
+        onlyFiveDaysWeatherList = Tools.fiveDaysfilteredList(fiveDaysWeatherList,5);
 
     }
 

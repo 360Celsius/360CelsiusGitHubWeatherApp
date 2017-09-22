@@ -235,9 +235,28 @@ public class JSONParser {
                 temp.setEve(tempObject.optDouble(JSONDictionary.EVE,0));
                 temp.setMorn(tempObject.optDouble(JSONDictionary.MORN,0));
 
+
+
+                CurrentWeatherItemObj currentWeatherItemObj = null;
+                JSONArray mainwWatherObject  = item.getJSONArray(JSONDictionary.WEATHER);
+                for (int j = 0; j < mainwWatherObject.length(); j++) {
+                    JSONObject mainWeatherItem = mainwWatherObject.getJSONObject(j);
+                    currentWeatherItemObj = new CurrentWeatherItemObj();
+                    currentWeatherItemObj.setId(mainWeatherItem.optInt(ID,0));
+                    currentWeatherItemObj.setMain(mainWeatherItem.optString(JSONDictionary.MAIN,null));
+                    currentWeatherItemObj.setDescription(mainWeatherItem.optString(JSONDictionary.DESCRIPTION,null));
+                    currentWeatherItemObj.setIcon(mainWeatherItem.optString(JSONDictionary.ICON,null));
+                }
+
+                ArrayList<CurrentWeatherItemObj> currentWeatherItemObjList = new ArrayList<>();
+                currentWeatherItemObjList.add(currentWeatherItemObj);
+                CurrentWeatherObj currentWeatherObj = new CurrentWeatherObj();
+                currentWeatherObj.setCurrentWeatherItemObj(currentWeatherItemObjList);
+
                 SixTeenDaysWeatherItemObj sixTeenDaysWeatherItemObj = new SixTeenDaysWeatherItemObj();
                 sixTeenDaysWeatherItemObj.setDt(dt);
                 sixTeenDaysWeatherItemObj.setTemp(temp);
+                sixTeenDaysWeatherItemObj.setWeather(currentWeatherItemObj);
 
                 sixTeenDaysWeatherList.add(sixTeenDaysWeatherItemObj);
 

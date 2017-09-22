@@ -79,7 +79,7 @@ public class ThreeDaysWeatherDataFragment extends Fragment{
 
         fiveDaysWeatherList = new ArrayList<>();
         fiveDaysWeatherList = mCallback.getDBhelper().getFiveDaysWeather();
-        threeDayWeatherList = Tools.filteredList(fiveDaysWeatherList,3);
+        threeDayWeatherList = Tools.fiveDaysfilteredList(fiveDaysWeatherList,3);
 
 
         //Log.e("dbquerytest","answer - > "+currentWeatherList.get(0).getHumidity());

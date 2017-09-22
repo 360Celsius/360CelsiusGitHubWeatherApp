@@ -56,6 +56,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String DATABASE_TABLE_SIXTEENDAYS_WEATHER_COLUMN_MAX_KEY = "max";
     public static final String DATABASE_TABLE_SIXTEENDAYS_WEATHER_COLUMN_NIGHT_KEY = "night";
     public static final String DATABASE_TABLE_SIXTEENDAYS_WEATHER_COLUMN_EVE_KEY = "eve";
+    public static final String DATABASE_TABLE_SIXTEENDAYS_WEATHER_COLUMN_ICON_KEY = "icon";
     public static final String DATABASE_TABLE_SIXTEENDAYS_WEATHER_COLUMN_MORN_KEY = "morn";
 
     public static final int DATABASE_VERSION = 2;
@@ -210,6 +211,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 values.put(DATABASE_TABLE_SIXTEENDAYS_WEATHER_COLUMN_NIGHT_KEY, sixTeenWeather.getSixTeenDaysWeather().get(i).getTemp().getNight());
                 values.put(DATABASE_TABLE_SIXTEENDAYS_WEATHER_COLUMN_EVE_KEY, sixTeenWeather.getSixTeenDaysWeather().get(i).getTemp().getEve());
                 values.put(DATABASE_TABLE_SIXTEENDAYS_WEATHER_COLUMN_MORN_KEY, sixTeenWeather.getSixTeenDaysWeather().get(i).getTemp().getMorn());
+                values.put(DATABASE_TABLE_SIXTEENDAYS_WEATHER_COLUMN_ICON_KEY, sixTeenWeather.getSixTeenDaysWeather().get(i).getWeather().getIcon());
 
 
                 // Notice how we haven't specified the primary key. SQLite auto increments the primary key column.
@@ -363,13 +365,16 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             if (cursor.moveToFirst()) {
                 do {
 
-                    cursor.getString(cursor.getColumnIndex(DATABASE_TABLE_SIXTEENDAYS_WEATHER_COLUMN_DT_KEY));
-                    cursor.getString(cursor.getColumnIndex(DATABASE_TABLE_SIXTEENDAYS_WEATHER_COLUMN_DAY_KEY));
-                    cursor.getString(cursor.getColumnIndex(DATABASE_TABLE_SIXTEENDAYS_WEATHER_COLUMN_MIN_KEY));
-                    cursor.getString(cursor.getColumnIndex(DATABASE_TABLE_SIXTEENDAYS_WEATHER_COLUMN_MAX_KEY));
-                    cursor.getString(cursor.getColumnIndex(DATABASE_TABLE_SIXTEENDAYS_WEATHER_COLUMN_NIGHT_KEY));
-                    cursor.getString(cursor.getColumnIndex(DATABASE_TABLE_SIXTEENDAYS_WEATHER_COLUMN_EVE_KEY));
-                    cursor.getString(cursor.getColumnIndex(DATABASE_TABLE_SIXTEENDAYS_WEATHER_COLUMN_MORN_KEY));
+                    SixTeenDaysWeatherQueryResponce sixTeenDaysWeatherQueryResponce = new SixTeenDaysWeatherQueryResponce();
+                    sixTeenDaysWeatherQueryResponce.setDt(cursor.getString(cursor.getColumnIndex(DATABASE_TABLE_SIXTEENDAYS_WEATHER_COLUMN_DT_KEY)));
+                    sixTeenDaysWeatherQueryResponce.setDay(cursor.getString(cursor.getColumnIndex(DATABASE_TABLE_SIXTEENDAYS_WEATHER_COLUMN_DAY_KEY)));
+                    sixTeenDaysWeatherQueryResponce.setMin(cursor.getString(cursor.getColumnIndex(DATABASE_TABLE_SIXTEENDAYS_WEATHER_COLUMN_MIN_KEY)));
+                    sixTeenDaysWeatherQueryResponce.setMax(cursor.getString(cursor.getColumnIndex(DATABASE_TABLE_SIXTEENDAYS_WEATHER_COLUMN_MAX_KEY)));
+                    sixTeenDaysWeatherQueryResponce.setNight(cursor.getString(cursor.getColumnIndex(DATABASE_TABLE_SIXTEENDAYS_WEATHER_COLUMN_NIGHT_KEY)));
+                    sixTeenDaysWeatherQueryResponce.setEve(cursor.getString(cursor.getColumnIndex(DATABASE_TABLE_SIXTEENDAYS_WEATHER_COLUMN_EVE_KEY)));
+                    sixTeenDaysWeatherQueryResponce.setMorn(cursor.getString(cursor.getColumnIndex(DATABASE_TABLE_SIXTEENDAYS_WEATHER_COLUMN_MORN_KEY)));
+                    sixTeenDaysWeatherQueryResponce.setIcon(cursor.getString(cursor.getColumnIndex(DATABASE_TABLE_SIXTEENDAYS_WEATHER_COLUMN_ICON_KEY)));
+                    sixTeenDaysWeatherList.add(sixTeenDaysWeatherQueryResponce);
 
                 } while (cursor.moveToNext());
             }
