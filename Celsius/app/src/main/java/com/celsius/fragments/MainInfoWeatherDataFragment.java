@@ -94,6 +94,7 @@ public class MainInfoWeatherDataFragment extends Fragment {
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        date.setText(Tools.getCurrentData());
         avgTemp.setText(currentWeatherList.get(0).getTemp()+" \u2103");
         maxTemp.setText(currentWeatherList.get(0).getTemp_max()+" \u2103");//" \u2109"
         minTemp.setText(currentWeatherList.get(0).getTemp_min()+" \u2103");

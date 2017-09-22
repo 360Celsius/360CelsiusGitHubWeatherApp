@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -80,7 +79,7 @@ public class ThreeDaysWeatherDataFragment extends Fragment{
 
         fiveDaysWeatherList = new ArrayList<>();
         fiveDaysWeatherList = mCallback.getDBhelper().getFiveDaysWeather();
-        threeDayWeatherList = Tools.threeDayWeatherList(fiveDaysWeatherList);
+        threeDayWeatherList = Tools.filteredList(fiveDaysWeatherList,3);
 
 
         //Log.e("dbquerytest","answer - > "+currentWeatherList.get(0).getHumidity());

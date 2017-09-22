@@ -1,6 +1,7 @@
 package com.celsius.utils;
 
 import android.content.Context;
+import android.util.Log;
 
 import com.celsius.dbhelper.FiveDaysWeatherQueryResponce;
 
@@ -71,7 +72,21 @@ public class Tools {
     }
 
 
-    public static ArrayList<FiveDaysWeatherQueryResponce> threeDayWeatherList (ArrayList<FiveDaysWeatherQueryResponce> list){
+    public static String getCurrentData(){
+
+        //SimpleDateFormat sdf = (SimpleDateFormat) SimpleDateFormat.getDateInstance(DateFormat.LONG, Locale.US);//new Locale("en", Locale.getDefault().getCountry()));
+        String resultPattern = "MM/dd/yyyy, EEEE";//sdf.toPattern();
+
+        DateFormat dateFormat = new SimpleDateFormat(resultPattern, new Locale("en", Locale.getDefault().getCountry()));
+        dateFormat.setTimeZone(TimeZone.getTimeZone("UTC+07:00"));
+        String date = dateFormat.format(new Date(System.currentTimeMillis())).toString();
+
+        //getNextDay(timeStamp);
+
+        return date;
+    }
+
+    public static ArrayList<FiveDaysWeatherQueryResponce> filteredList(ArrayList<FiveDaysWeatherQueryResponce> list, int daysLimit){
 
         String resultPattern = "yy/MM/dd HH:mm:ss";
         DateFormat dateFormat = new SimpleDateFormat(resultPattern, new Locale("en", Locale.getDefault().getCountry()));
@@ -87,16 +102,20 @@ public class Tools {
                 long diff = d2.getTime() - d1.getTime();
                 long days = TimeUnit.MILLISECONDS.toDays(diff);
                 if(days == 1){
-                    newList.add(list.get(j));
+                    newList.add(list.get(i));
                     i = j;
                     break;
                 }
 
-                //Log.e("difftest",String.valueOf(days));
+                Log.e("difftest",String.valueOf(days));
             }
-            if(newList.size()==3){
+            if(newList.size()==daysLimit){
                 break;
             }
+        }
+
+        if(newList.size()<daysLimit){
+            newList.add(list.get(list.size()-12));
         }
 
         return newList;
