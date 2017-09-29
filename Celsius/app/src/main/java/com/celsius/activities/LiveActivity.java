@@ -2,7 +2,9 @@ package com.celsius.activities;
 
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.net.wifi.WifiManager;
 import android.os.Bundle;
+import android.text.format.Formatter;
 import android.view.View;
 import android.widget.RelativeLayout;
 
@@ -14,6 +16,10 @@ import com.celsius.recivers.ResponseReceiver;
 import com.celsius.services.WeatherPullService;
 import com.celsius.services.WeatherPullServicePutExtraKry;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.URL;
+
 public class LiveActivity extends BaseActivity implements DBHelperListenerInterface {
 
     private ResponseReceiver receiver;
@@ -22,21 +28,16 @@ public class LiveActivity extends BaseActivity implements DBHelperListenerInterf
     private RelativeLayout sixteenDaysButton;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.live_activity);
 
-        //get main info data
-        Intent msgIntentMainData = new Intent(getApplicationContext(), WeatherPullService.class);
-        msgIntentMainData.putExtra(WeatherPullServicePutExtraKry.GET_WEATHER_ACTION_KEY, WeatherPullServicePutExtraKry.GET_MAIN_INFO_WEATHER_DATA);
-        startService(msgIntentMainData);
-
-        //send current weather intent but send 5 days data in order to show 3 days.
-        Intent msgIntentFiveDaysData = new Intent(getApplicationContext(), WeatherPullService.class);
-        msgIntentFiveDaysData.putExtra(WeatherPullServicePutExtraKry.GET_WEATHER_ACTION_KEY, WeatherPullServicePutExtraKry.GET_THREE_DAYS_WEATHER_DATA);
-        startService(msgIntentFiveDaysData);
+        //get external ip
+        Intent msgIntentGetExternalIP = new Intent(getApplicationContext(), WeatherPullService.class);
+        msgIntentGetExternalIP.putExtra(WeatherPullServicePutExtraKry.GET_WEATHER_ACTION_KEY, WeatherPullServicePutExtraKry.GET_EXTERNAL_IP_DATA);
+        startService(msgIntentGetExternalIP);
+/////////////////////////////////////////////////////
 
         currentButton = (RelativeLayout) findViewById(R.id.currentButton);
         currentButton.setOnClickListener(new View.OnClickListener() {
@@ -87,4 +88,5 @@ public class LiveActivity extends BaseActivity implements DBHelperListenerInterf
     public DatabaseHelper getDBhelper() {
         return helper;
     }
+
 }

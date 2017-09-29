@@ -14,8 +14,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.ahrenheit.celsius.activities.R;
+import com.celsius.dbhelper.CurrentLocationQueryResponce;
 import com.celsius.dbhelper.CurrentWeatherQueryResponce;
 import com.celsius.interfaces.DBHelperListenerInterface;
+import com.celsius.responce.objects.CurrentLocationObj;
 import com.celsius.services.WeatherPullService;
 import com.celsius.services.WeatherPullServicePutExtraKry;
 import com.celsius.utils.Tools;
@@ -30,6 +32,7 @@ public class MainInfoWeatherDataFragment extends Fragment {
 
     private DBHelperListenerInterface mCallback;
     private ArrayList<CurrentWeatherQueryResponce> currentWeatherList;
+    private CurrentLocationQueryResponce currentLocationQueryResponce;
 
     private TextView date;
     private ImageView tempTypeIcon;
@@ -86,6 +89,9 @@ public class MainInfoWeatherDataFragment extends Fragment {
         currentWeatherList = new ArrayList<>();
         currentWeatherList = mCallback.getDBhelper().getCurrentWeather();
 
+        currentLocationQueryResponce = new CurrentLocationQueryResponce();
+        currentLocationQueryResponce.setCity(mCallback.getDBhelper().getCurrentLocationDATA().getCity());
+
        // Log.e("dbquerytest","answer - > "+currentWeatherList.get(0).getHumidity());
 
     }
@@ -102,7 +108,7 @@ public class MainInfoWeatherDataFragment extends Fragment {
         atmosphericPressure.setText(currentWeatherList.get(0).getPresure());
         avgTempDescription.setText(currentWeatherList.get(0).getDescription().toUpperCase());
         weatherVisualIndicatir.setImageDrawable(getResources().getDrawable(Tools.convertDescriptionToImageWeather(getActivity().getApplicationContext(),currentWeatherList.get(0).getIcon())));
-
+        locationText.setText(currentLocationQueryResponce.getCity());
 
     }
 }

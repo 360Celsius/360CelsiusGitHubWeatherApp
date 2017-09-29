@@ -19,4 +19,9 @@ public class WeatherPullServicePutExtraKry {
     public static final String GET_THREE_DAYS_WEATHER_DATA = "GET_THREE_DAYS_WEATHER_DATA";
     public static final String GET_FIVE_DAYS_WEATHER_DATA = "GET_FIVE_DAYS_WEATHER_DATA";
     public static final String GET_SIXTEEN_DAYS_WEATHER_DATA = "GET_FIVE_dats_WEATHER_DATA";
+    public static final String GET_EXTERNAL_IP_DATA = "GET_EXTERNAL_IP_DATA";
+    public static final String GET_LOCATION_BY_EXTERNAL_IP_DATA = "GET_LOCATION_BY_EXTERNAL_IP_DATA";
+    public static final String GET_CURRENT_LOCATIOB_KEY= "GET_CURRENT_LOCATIOB_KEY";
+
+
 }

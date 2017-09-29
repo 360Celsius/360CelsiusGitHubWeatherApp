@@ -129,8 +129,77 @@ public class DataBaseHelperContract {
     public static final String SQL_DELETE_ENTRIES_SIXTEENDAYS_WEATHER =
             "DROP TABLE IF EXISTS " + SIXTEENDAYS_WEATHER.DATABASE_TABLE_SIXTEENDAYS_WEATHER_TABLE_NAME;
 
+/////////////////////////////////////////////////// External IP /////////////////////////////////////////////
+    private static class EXTERNAL_IP implements BaseColumns {
+    public static final String DATABASE_TABLE_EXTERNAL_IP_TABLE_NAME_KEY = "external_ip";
+    public static final String DATABASE_TABLE_EXTERNAL_IP_COLUMN_ID_KEY = "id";
+    public static final String DATABASE_TABLE_EXTERNAL_HOSTNAME_COLUMN_ID_KEY = "hostname";
+    public static final String DATABASE_TABLE_EXTERNAL_CITY_COLUMN_ID_KEY = "city";
+    public static final String DATABASE_TABLE_EXTERNAL_REGION_COLUMN_ID_KEY = "region";
+    public static final String DATABASE_TABLE_EXTERNAL_COUNTRY_COLUMN_ID_KEY = "country";
+    public static final String DATABASE_TABLE_EXTERNAL_LOC_COLUMN_ID_KEY = "loc";
+    public static final String DATABASE_TABLE_EXTERNAL_ORG_COLUMN_ID_KEY = "org";
+    }
 
 
+    public static final String SQL_CREATE_ENTRIES_EXTERNAL_IP =
+            "CREATE TABLE " + EXTERNAL_IP.DATABASE_TABLE_EXTERNAL_IP_TABLE_NAME_KEY + " (" +
+                    EXTERNAL_IP._ID + " INTEGER PRIMARY KEY," +
+                    EXTERNAL_IP.DATABASE_TABLE_EXTERNAL_IP_COLUMN_ID_KEY + " TEXT," +
+                    EXTERNAL_IP.DATABASE_TABLE_EXTERNAL_HOSTNAME_COLUMN_ID_KEY + " TEXT," +
+                    EXTERNAL_IP.DATABASE_TABLE_EXTERNAL_CITY_COLUMN_ID_KEY + " TEXT," +
+                    EXTERNAL_IP.DATABASE_TABLE_EXTERNAL_REGION_COLUMN_ID_KEY + " TEXT," +
+                    EXTERNAL_IP.DATABASE_TABLE_EXTERNAL_COUNTRY_COLUMN_ID_KEY + " TEXT," +
+                    EXTERNAL_IP.DATABASE_TABLE_EXTERNAL_LOC_COLUMN_ID_KEY + " TEXT," +
+                    EXTERNAL_IP.DATABASE_TABLE_EXTERNAL_ORG_COLUMN_ID_KEY + " TEXT)";
+
+    public static final String SQL_DELETE_ENTRIES_EXTERNAL_IP =
+            "DROP TABLE IF EXISTS " + EXTERNAL_IP.DATABASE_TABLE_EXTERNAL_IP_TABLE_NAME_KEY;
+
+
+
+    /////////////////////////////////// CURRENT LOCATION //////////////////////////////////////
+    private static class CURRENT_LOCATION implements BaseColumns {
+        public static final String DATABASE_TABLE_CURRENT_LOCATION_TABLE_NAME_KEY = "current_location";
+        public static final String DATABASE_TABLE_CURRENT_AS_COLUMN_KEY = "as";
+        public static final String DATABASE_TABLE_CURRENT_CITY_COLUMN_KEY = "city";
+        public static final String DATABASE_TABLE_CURRENT_COUNTRY_COLUMN_KEY = "country";
+        public static final String DATABASE_TABLE_CURRENT_COUNTRYCODE_COLUMN_KEY = "countryCode";
+        public static final String DATABASE_TABLE_CURRENT_ISP_COLUMN_KEY = "isp";
+        public static final String DATABASE_TABLE_CURRENT_LAT_COLUMN_KEY = "lat";
+        public static final String DATABASE_TABLE_CURRENT_LON_COLUMN_KEY = "lon";
+        public static final String DATABASE_TABLE_CURRENT_ORG_COLUMN_KEY = "org";
+        public static final String DATABASE_TABLE_CURRENT_QUERY_COLUMN_KEY = "query";
+        public static final String DATABASE_TABLE_CURRENT_REGION_COLUMN_KEY = "region";
+        public static final String DATABASE_TABLE_CURRENT_REGIONNAME_COLUMN_KEY = "regionName";
+        public static final String DATABASE_TABLE_CURRENT_STATUS_COLUMN_KEY = "status";
+        public static final String DATABASE_TABLE_CURRENT_TIMEZONE_COLUMN_KEY = "timezone";
+        public static final String DATABASE_TABLE_CURRENT_ZIP_COLUMN_KEY = "zip";
+
+
+    }
+
+
+    public static final String SQL_CREATE_CURRENT_LOCATION =
+            "CREATE TABLE " + CURRENT_LOCATION.DATABASE_TABLE_CURRENT_LOCATION_TABLE_NAME_KEY + " (" +
+                    CURRENT_LOCATION._ID + " INTEGER PRIMARY KEY," +
+                    //CURRENT_LOCATION.DATABASE_TABLE_CURRENT_AS_COLUMN_KEY + " TEXT," +
+                    CURRENT_LOCATION.DATABASE_TABLE_CURRENT_CITY_COLUMN_KEY + " TEXT," +
+                    CURRENT_LOCATION.DATABASE_TABLE_CURRENT_COUNTRY_COLUMN_KEY + " TEXT," +
+                    CURRENT_LOCATION.DATABASE_TABLE_CURRENT_COUNTRYCODE_COLUMN_KEY + " TEXT," +
+                    CURRENT_LOCATION.DATABASE_TABLE_CURRENT_ISP_COLUMN_KEY + " TEXT," +
+                    CURRENT_LOCATION.DATABASE_TABLE_CURRENT_LAT_COLUMN_KEY + " TEXT," +
+                    CURRENT_LOCATION.DATABASE_TABLE_CURRENT_LON_COLUMN_KEY + " TEXT," +
+                    CURRENT_LOCATION.DATABASE_TABLE_CURRENT_ORG_COLUMN_KEY + " TEXT," +
+                    CURRENT_LOCATION.DATABASE_TABLE_CURRENT_QUERY_COLUMN_KEY + " TEXT," +
+                    CURRENT_LOCATION.DATABASE_TABLE_CURRENT_REGION_COLUMN_KEY + " TEXT," +
+                    CURRENT_LOCATION.DATABASE_TABLE_CURRENT_REGIONNAME_COLUMN_KEY + " TEXT," +
+                    CURRENT_LOCATION.DATABASE_TABLE_CURRENT_STATUS_COLUMN_KEY + " TEXT," +
+                    CURRENT_LOCATION.DATABASE_TABLE_CURRENT_TIMEZONE_COLUMN_KEY + " TEXT," +
+                    CURRENT_LOCATION.DATABASE_TABLE_CURRENT_ZIP_COLUMN_KEY + " TEXT)";
+
+    public static final String SQL_DELETE_URRENT_LOCATION =
+            "DROP TABLE IF EXISTS " + CURRENT_LOCATION.DATABASE_TABLE_CURRENT_LOCATION_TABLE_NAME_KEY;
 
 
 }

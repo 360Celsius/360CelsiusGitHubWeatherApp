@@ -46,7 +46,7 @@ public class WeatherPullService extends IntentService {
         String responce = null;
         if(intent.getStringExtra(WeatherPullServicePutExtraKry.GET_WEATHER_ACTION_KEY).equalsIgnoreCase(WeatherPullServicePutExtraKry.GET_THREE_DAYS_WEATHER_DATA)){
             //Log.e("ServiceTest","WeatherPullService onHandleIntent GET_CURRENT_WEATHER_DATA");
-            responce = networkHTTPRequests.fiveDayWeatherForecast("Dublin",WeatherPullServicePutExtraKry.GET_FIVE_DAYS_WEATHER_DATA,"metric");
+            responce = networkHTTPRequests.fiveDayWeatherForecast(helper.getCurrentLocationDATA().getCity(),"metric");
 
             helper.addFiveDaysWeather(jsonParser.fiveDaysWeatherGenerator(responce));
 
@@ -58,7 +58,7 @@ public class WeatherPullService extends IntentService {
 
         }else if(intent.getStringExtra(WeatherPullServicePutExtraKry.GET_WEATHER_ACTION_KEY).equalsIgnoreCase(WeatherPullServicePutExtraKry.GET_MAIN_INFO_WEATHER_DATA)){
             //Log.e("ServiceTest","WeatherPullService onHandleIntent GET_CURRENT_WEATHER_DATA");
-            responce = networkHTTPRequests.currentWeatherData("Dublin",WeatherPullServicePutExtraKry.GET_CURRENT_WEATHER_DATA,"metric");
+            responce = networkHTTPRequests.currentWeatherData(helper.getCurrentLocationDATA().getCity(),"metric");
 
             helper.addCurrentWeather(jsonParser.currentWeatherGenerator(responce));
 
@@ -70,7 +70,7 @@ public class WeatherPullService extends IntentService {
 
         }else if(intent.getStringExtra(WeatherPullServicePutExtraKry.GET_WEATHER_ACTION_KEY).equalsIgnoreCase(WeatherPullServicePutExtraKry.GET_CURRENT_WEATHER_DATA)){
             //Log.e("ServiceTest","WeatherPullService onHandleIntent GET_CURRENT_WEATHER_DATA");
-            responce = networkHTTPRequests.currentWeatherData("Dublin",WeatherPullServicePutExtraKry.GET_CURRENT_WEATHER_DATA,"metric");
+            responce = networkHTTPRequests.currentWeatherData(helper.getCurrentLocationDATA().getCity(),"metric");
 
             helper.addCurrentWeather(jsonParser.currentWeatherGenerator(responce));
 
@@ -82,7 +82,7 @@ public class WeatherPullService extends IntentService {
 
         }else if(intent.getStringExtra(WeatherPullServicePutExtraKry.GET_WEATHER_ACTION_KEY).equalsIgnoreCase(WeatherPullServicePutExtraKry.GET_FIVE_DAYS_WEATHER_DATA)){
             //Log.e("ServiceTest","WeatherPullService onHandleIntent FIVE_DAY_WEATHER_FORCAST_DATA_RESPONCE");
-            responce = networkHTTPRequests.fiveDayWeatherForecast("Dublin", WeatherPullServicePutExtraKry.GET_CURRENT_WEATHER_DATA,"metric");
+            responce = networkHTTPRequests.fiveDayWeatherForecast(helper.getCurrentLocationDATA().getCity(),"metric");
 
 
             helper.addFiveDaysWeather(jsonParser.fiveDaysWeatherGenerator(responce));
@@ -97,7 +97,7 @@ public class WeatherPullService extends IntentService {
 
         }else if(intent.getStringExtra(WeatherPullServicePutExtraKry.GET_WEATHER_ACTION_KEY).equalsIgnoreCase(WeatherPullServicePutExtraKry.GET_SIXTEEN_DAYS_WEATHER_DATA)){
             //Log.e("ServiceTest","WeatherPullService onHandleIntent SIXTEEN_DAY_WEATHER_FORCAST_DATA_RESPONCE");
-            responce = networkHTTPRequests.sixTeenDayWeatherForecast("Dublin",WeatherPullServicePutExtraKry.GET_SIXTEEN_DAYS_WEATHER_DATA,"metric");
+            responce = networkHTTPRequests.sixTeenDayWeatherForecast(helper.getCurrentLocationDATA().getCity(),"metric");
 
 
             helper.addSixteenDaysWeather(jsonParser.sixTeenDaysWeatherGenerator(responce));
@@ -109,6 +109,41 @@ public class WeatherPullService extends IntentService {
             broadcastIntent.putExtra(WeatherPullServicePutExtraKry.GET_WEATHER_ACTION_KEY, WeatherPullServicePutExtraKry.GET_SIXTEEN_DAYS_WEATHER_DATA);
             broadcastIntent.putExtra(WeatherPullServicePutExtraKry.SIXTEEN_DAY_WEATHER_FORCAST_DATA_RESPONCE, responce);
             sendBroadcast(broadcastIntent);
+
+        }else if(intent.getStringExtra(WeatherPullServicePutExtraKry.GET_WEATHER_ACTION_KEY).equalsIgnoreCase(WeatherPullServicePutExtraKry.GET_EXTERNAL_IP_DATA)){
+            Log.e("ServiceTest","WeatherPullService onHandleIntent GET_EXTERNAL_IP_DATA");
+
+            responce = networkHTTPRequests.getExternalIP();
+
+            helper.addExternalIPData(jsonParser.getExternalIP(responce));
+
+            //helper.getExternalIPDATA();
+
+
+            Intent broadcastIntent = new Intent();
+            broadcastIntent.setAction(GET_WEATHER_DATA);
+            broadcastIntent.putExtra(WeatherPullServicePutExtraKry.GET_WEATHER_ACTION_KEY, WeatherPullServicePutExtraKry.GET_EXTERNAL_IP_DATA);
+            //broadcastIntent.putExtra(WeatherPullServicePutExtraKry.SIXTEEN_DAY_WEATHER_FORCAST_DATA_RESPONCE, responce);
+            sendBroadcast(broadcastIntent);
+
+        }else if(intent.getStringExtra(WeatherPullServicePutExtraKry.GET_WEATHER_ACTION_KEY).equalsIgnoreCase(WeatherPullServicePutExtraKry.GET_LOCATION_BY_EXTERNAL_IP_DATA)){
+            Log.e("ServiceTest","WeatherPullService onHandleIntent GET_LOCATION_BY_EXTERNAL_IP_DATA");
+
+            responce = networkHTTPRequests.getLocationByExternalIP(helper.getExternalIPDATA().getIp());
+
+            helper.addCurrentLocationData(jsonParser.getCurrentLocation(responce));
+
+            Intent broadcastIntent = new Intent();
+            broadcastIntent.setAction(GET_WEATHER_DATA);
+            broadcastIntent.putExtra(WeatherPullServicePutExtraKry.GET_WEATHER_ACTION_KEY, WeatherPullServicePutExtraKry.GET_LOCATION_BY_EXTERNAL_IP_DATA);
+            //broadcastIntent.putExtra(WeatherPullServicePutExtraKry.SIXTEEN_DAY_WEATHER_FORCAST_DATA_RESPONCE, responce);
+            sendBroadcast(broadcastIntent);
+
+
+
+
+            Log.e("ServiceTest","WeatherPullService onHandleIntent GET_LOCATION_BY_EXTERNAL_IP_DATA -> "+responce);
+
         }
     }
 }

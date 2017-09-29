@@ -7,9 +7,9 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
-import com.celsius.responce.objects.CoordObj;
+import com.celsius.responce.objects.CurrentLocationObj;
 import com.celsius.responce.objects.CurrentWeather;
-import com.celsius.responce.objects.CurrentWeatherObj;
+import com.celsius.responce.objects.ExternalIPObj;
 import com.celsius.responce.objects.FiveDaysWeather;
 import com.celsius.responce.objects.SixTeenDaysWeather;
 
@@ -59,6 +59,33 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String DATABASE_TABLE_SIXTEENDAYS_WEATHER_COLUMN_ICON_KEY = "icon";
     public static final String DATABASE_TABLE_SIXTEENDAYS_WEATHER_COLUMN_MORN_KEY = "morn";
 
+
+    public static final String DATABASE_TABLE_EXTERNAL_IP_TABLE_NAME_KEY = "external_ip";
+    public static final String DATABASE_TABLE_EXTERNAL_IP_COLUMN_KEY = "id";
+    public static final String DATABASE_TABLE_EXTERNAL_HOSTNAME_COLUMN_KEY = "hostname";
+    public static final String DATABASE_TABLE_EXTERNAL_CITY_COLUMN_KEY = "city";
+    public static final String DATABASE_TABLE_EXTERNAL_REGION_COLUMN_KEY = "region";
+    public static final String DATABASE_TABLE_EXTERNAL_COUNTRY_COLUMN_KEY = "country";
+    public static final String DATABASE_TABLE_EXTERNAL_LOC_COLUMN_KEY = "loc";
+    public static final String DATABASE_TABLE_EXTERNAL_ORG_COLUMN_KEY = "org";
+
+
+    public static final String DATABASE_TABLE_CURRENT_LOCATION_TABLE_NAME_KEY = "current_location";
+    public static final String DATABASE_TABLE_CURRENT_AS_COLUMN_KEY = "as";
+    public static final String DATABASE_TABLE_CURRENT_CITY_COLUMN_KEY = "city";
+    public static final String DATABASE_TABLE_CURRENT_COUNTRY_COLUMN_KEY = "country";
+    public static final String DATABASE_TABLE_CURRENT_COUNTRYCODE_COLUMN_KEY = "countryCode";
+    public static final String DATABASE_TABLE_CURRENT_ISP_COLUMN_KEY = "isp";
+    public static final String DATABASE_TABLE_CURRENT_LAT_COLUMN_KEY = "lat";
+    public static final String DATABASE_TABLE_CURRENT_LON_COLUMN_KEY = "lon";
+    public static final String DATABASE_TABLE_CURRENT_ORG_COLUMN_KEY = "org";
+    public static final String DATABASE_TABLE_CURRENT_QUERY_COLUMN_KEY = "query";
+    public static final String DATABASE_TABLE_CURRENT_REGION_COLUMN_KEY = "region";
+    public static final String DATABASE_TABLE_CURRENT_REGIONNAME_COLUMN_KEY = "regionName";
+    public static final String DATABASE_TABLE_CURRENT_STATUS_COLUMN_KEY = "status";
+    public static final String DATABASE_TABLE_CURRENT_TIMEZONE_COLUMN_KEY = "timezone";
+    public static final String DATABASE_TABLE_CURRENT_ZIP_COLUMN_KEY = "zip";
+
     public static final int DATABASE_VERSION = 2;
     public static final String DATABASE_NAME = "CelsiusWeather.db";
     private static DatabaseHelper sInstance;
@@ -89,6 +116,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(DataBaseHelperContract.SQL_CREATE_ENTRIES_CURRENT_WEATHER);
         db.execSQL(DataBaseHelperContract.SQL_CREATE_ENTRIES_FIVEDAYS_WEATHER);
         db.execSQL(DataBaseHelperContract.SQL_CREATE_ENTRIES_SIXTEENDAYS_WEATHER);
+        db.execSQL(DataBaseHelperContract.SQL_CREATE_ENTRIES_EXTERNAL_IP);
+        db.execSQL(DataBaseHelperContract.SQL_CREATE_CURRENT_LOCATION);
     }
 
     @Override
@@ -99,6 +128,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             db.execSQL(DataBaseHelperContract.SQL_CREATE_ENTRIES_CURRENT_WEATHER);
             db.execSQL(DataBaseHelperContract.SQL_CREATE_ENTRIES_FIVEDAYS_WEATHER);
             db.execSQL(DataBaseHelperContract.SQL_CREATE_ENTRIES_SIXTEENDAYS_WEATHER);
+            db.execSQL(DataBaseHelperContract.SQL_CREATE_ENTRIES_EXTERNAL_IP);
+            db.execSQL(DataBaseHelperContract.SQL_CREATE_CURRENT_LOCATION);
             onCreate(db);
         }
     }
@@ -108,6 +139,76 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         super.onDowngrade(db, oldVersion, newVersion);
     }
 
+    public void addExternalIPData(ExternalIPObj externalIPObj){
+        deleteExternalIPTable();
+
+        // Create and/or open the database for writing
+        SQLiteDatabase db = getWritableDatabase();
+
+        // It's a good idea to wrap our insert in a transaction. This helps with performance and ensures
+        // consistency of the database.
+        db.beginTransaction();
+
+        try{
+            ContentValues values = new ContentValues();
+            values.put(DATABASE_TABLE_EXTERNAL_IP_COLUMN_KEY, externalIPObj.getIp());
+            values.put(DATABASE_TABLE_EXTERNAL_HOSTNAME_COLUMN_KEY, externalIPObj.getHostname());
+            values.put(DATABASE_TABLE_EXTERNAL_CITY_COLUMN_KEY, externalIPObj.getCity());
+            values.put(DATABASE_TABLE_EXTERNAL_REGION_COLUMN_KEY, externalIPObj.getRegion());
+            values.put(DATABASE_TABLE_EXTERNAL_COUNTRY_COLUMN_KEY, externalIPObj.getCountry());
+            values.put(DATABASE_TABLE_EXTERNAL_LOC_COLUMN_KEY, externalIPObj.getLoc());
+            values.put(DATABASE_TABLE_EXTERNAL_ORG_COLUMN_KEY, externalIPObj.getOrg());
+
+            // Notice how we haven't specified the primary key. SQLite auto increments the primary key column.
+            db.insertOrThrow(DATABASE_TABLE_EXTERNAL_IP_TABLE_NAME_KEY, null, values);
+            db.setTransactionSuccessful();
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            db.endTransaction();
+        }
+
+    }
+
+
+    public void addCurrentLocationData(CurrentLocationObj currentLocationObj){
+        deleteCurrentLocationTable();
+
+        // Create and/or open the database for writing
+        SQLiteDatabase db = getWritableDatabase();
+
+        // It's a good idea to wrap our insert in a transaction. This helps with performance and ensures
+        // consistency of the database.
+        db.beginTransaction();
+
+        try{
+            ContentValues values = new ContentValues();
+            //values.put(DATABASE_TABLE_CURRENT_AS_COLUMN_KEY, currentLocationObj.getAs());
+            values.put(DATABASE_TABLE_CURRENT_CITY_COLUMN_KEY, currentLocationObj.getCity());
+            values.put(DATABASE_TABLE_CURRENT_COUNTRY_COLUMN_KEY, currentLocationObj.getCountry());
+            values.put(DATABASE_TABLE_CURRENT_COUNTRYCODE_COLUMN_KEY, currentLocationObj.getCountryCode());
+            values.put(DATABASE_TABLE_CURRENT_ISP_COLUMN_KEY, currentLocationObj.getIsp());
+            values.put(DATABASE_TABLE_CURRENT_LAT_COLUMN_KEY, currentLocationObj.getLat());
+            values.put(DATABASE_TABLE_CURRENT_LON_COLUMN_KEY, currentLocationObj.getLan());
+            values.put(DATABASE_TABLE_CURRENT_ORG_COLUMN_KEY, currentLocationObj.getOrg());
+            values.put(DATABASE_TABLE_CURRENT_QUERY_COLUMN_KEY, currentLocationObj.getQuery());
+            values.put(DATABASE_TABLE_CURRENT_REGION_COLUMN_KEY, currentLocationObj.getRegion());
+            values.put(DATABASE_TABLE_CURRENT_REGIONNAME_COLUMN_KEY, currentLocationObj.getRegionName());
+            values.put(DATABASE_TABLE_CURRENT_STATUS_COLUMN_KEY, currentLocationObj.getStatus());
+            values.put(DATABASE_TABLE_CURRENT_TIMEZONE_COLUMN_KEY, currentLocationObj.getTimezone());
+            values.put(DATABASE_TABLE_CURRENT_ZIP_COLUMN_KEY, currentLocationObj.getZip());
+
+            // Notice how we haven't specified the primary key. SQLite auto increments the primary key column.
+            db.insertOrThrow(DATABASE_TABLE_CURRENT_LOCATION_TABLE_NAME_KEY, null, values);
+            db.setTransactionSuccessful();
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            db.endTransaction();
+        }
+    }
 
 
     public void addCurrentWeather(CurrentWeather currentWeather) {
@@ -222,6 +323,32 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         } catch (Exception e) {
 
+        } finally {
+            db.endTransaction();
+        }
+    }
+
+    public void deleteExternalIPTable() {
+        SQLiteDatabase db = getWritableDatabase();
+        db.beginTransaction();
+        try {
+            db.delete(DATABASE_TABLE_EXTERNAL_IP_TABLE_NAME_KEY, null, null);
+            db.setTransactionSuccessful();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            db.endTransaction();
+        }
+    }
+
+    public void deleteCurrentLocationTable(){
+        SQLiteDatabase db = getWritableDatabase();
+        db.beginTransaction();
+        try {
+            db.delete(DATABASE_TABLE_CURRENT_LOCATION_TABLE_NAME_KEY, null, null);
+            db.setTransactionSuccessful();
+        } catch (Exception e) {
+            e.printStackTrace();
         } finally {
             db.endTransaction();
         }
@@ -387,5 +514,72 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
         Log.e("interfacetest","DatabaseHelper getSixTeenDaysWeather");
         return sixTeenDaysWeatherList;
+    }
+
+    public ExternalIPQueryResponce getExternalIPDATA(){
+        String queryGetSixTeenDaysWEATHER = "SELECT  * FROM " + DATABASE_TABLE_EXTERNAL_IP_TABLE_NAME_KEY;
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(queryGetSixTeenDaysWEATHER, null);
+        ExternalIPQueryResponce externalIPQueryResponce = new ExternalIPQueryResponce();
+
+        try{
+            if (cursor.moveToFirst()) {
+                externalIPQueryResponce.setIp(cursor.getString(cursor.getColumnIndex(DATABASE_TABLE_EXTERNAL_IP_COLUMN_KEY)));
+                externalIPQueryResponce.setHostname(cursor.getString(cursor.getColumnIndex(DATABASE_TABLE_EXTERNAL_HOSTNAME_COLUMN_KEY)));
+                externalIPQueryResponce.setCity(cursor.getString(cursor.getColumnIndex(DATABASE_TABLE_EXTERNAL_CITY_COLUMN_KEY)));
+                externalIPQueryResponce.setRegion(cursor.getString(cursor.getColumnIndex(DATABASE_TABLE_EXTERNAL_REGION_COLUMN_KEY)));
+                externalIPQueryResponce.setCountry(cursor.getString(cursor.getColumnIndex(DATABASE_TABLE_EXTERNAL_COUNTRY_COLUMN_KEY)));
+                externalIPQueryResponce.setLoc(cursor.getString(cursor.getColumnIndex(DATABASE_TABLE_EXTERNAL_LOC_COLUMN_KEY)));
+                externalIPQueryResponce.setOrg(cursor.getString(cursor.getColumnIndex(DATABASE_TABLE_EXTERNAL_ORG_COLUMN_KEY)));
+
+            }
+
+        }catch (Exception e){
+            e.printStackTrace();;
+        }finally {
+            if (cursor != null && !cursor.isClosed()) {
+                cursor.close();
+            }
+        }
+
+        return externalIPQueryResponce;
+    }
+
+    public CurrentLocationQueryResponce getCurrentLocationDATA(){
+        String queryGetSixTeenDaysWEATHER = "SELECT  * FROM " + DATABASE_TABLE_CURRENT_LOCATION_TABLE_NAME_KEY;
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(queryGetSixTeenDaysWEATHER, null);
+        CurrentLocationQueryResponce currentLocationQueryResponce = new CurrentLocationQueryResponce();
+
+        try{
+            if (cursor.moveToFirst()) {
+               // currentLocationQueryResponce.setAs(cursor.getString(cursor.getColumnIndex(DATABASE_TABLE_CURRENT_AS_COLUMN_KEY)));
+                currentLocationQueryResponce.setCity(cursor.getString(cursor.getColumnIndex(DATABASE_TABLE_CURRENT_CITY_COLUMN_KEY)));
+                currentLocationQueryResponce.setCountry(cursor.getString(cursor.getColumnIndex(DATABASE_TABLE_CURRENT_COUNTRY_COLUMN_KEY)));
+                currentLocationQueryResponce.setCountryCode(cursor.getString(cursor.getColumnIndex(DATABASE_TABLE_CURRENT_COUNTRYCODE_COLUMN_KEY)));
+                currentLocationQueryResponce.setIsp(cursor.getString(cursor.getColumnIndex(DATABASE_TABLE_CURRENT_ISP_COLUMN_KEY)));
+                currentLocationQueryResponce.setLat(cursor.getString(cursor.getColumnIndex(DATABASE_TABLE_CURRENT_LAT_COLUMN_KEY)));
+                currentLocationQueryResponce.setLan(cursor.getString(cursor.getColumnIndex(DATABASE_TABLE_CURRENT_LON_COLUMN_KEY)));
+                currentLocationQueryResponce.setOrg(cursor.getString(cursor.getColumnIndex(DATABASE_TABLE_CURRENT_ORG_COLUMN_KEY)));
+                currentLocationQueryResponce.setQuery(cursor.getString(cursor.getColumnIndex(DATABASE_TABLE_CURRENT_QUERY_COLUMN_KEY)));
+                currentLocationQueryResponce.setRegion(cursor.getString(cursor.getColumnIndex(DATABASE_TABLE_CURRENT_REGION_COLUMN_KEY)));
+                currentLocationQueryResponce.setRegionName(cursor.getString(cursor.getColumnIndex(DATABASE_TABLE_CURRENT_REGIONNAME_COLUMN_KEY)));
+                currentLocationQueryResponce.setStatus(cursor.getString(cursor.getColumnIndex(DATABASE_TABLE_CURRENT_STATUS_COLUMN_KEY)));
+                currentLocationQueryResponce.setTimezone(cursor.getString(cursor.getColumnIndex(DATABASE_TABLE_CURRENT_TIMEZONE_COLUMN_KEY)));
+                currentLocationQueryResponce.setZip(cursor.getString(cursor.getColumnIndex(DATABASE_TABLE_CURRENT_ZIP_COLUMN_KEY)));
+
+            }
+
+        }catch (Exception e){
+            e.printStackTrace();;
+        }finally {
+            if (cursor != null && !cursor.isClosed()) {
+                cursor.close();
+            }
+        }
+
+        return currentLocationQueryResponce;
     }
 }

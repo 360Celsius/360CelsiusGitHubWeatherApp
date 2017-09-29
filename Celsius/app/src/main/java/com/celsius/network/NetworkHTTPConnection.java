@@ -25,7 +25,7 @@ public class NetworkHTTPConnection {
     static final int TIMEOUT_SOCKET = 160000;
     static final int TIMEOUT_CONNECTION = 100000;
 
-    public static String getHttp(String apiAction, String requestType){
+    public static String getHttp(String apiAction){
 
         try {
             URL obj = null;
@@ -74,4 +74,6 @@ public class NetworkHTTPConnection {
         }
 
     }
+
+
 }

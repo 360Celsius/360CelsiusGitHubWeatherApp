@@ -61,5 +61,18 @@ public class JSONDictionary {
     static public String EVE = "eve";
     static public String MORN = "morn";
 
+    static public String AS = "as";
+    static public String COUNTRY_CODE = "countryCode";
+    static public String ISP = "isp";
+    static public String ORG = "org";
+    static public String QUERY = "query";
+    static public String REGION = "region";
+    static public String REGION_NAME = "regionName";
+    static public String STATUS = "status";
+    static public String TIME_ZONE = "timezone";
+    static public String ZIP = "zip";
+    static public String HOST_MANE = "hostname";
+    static public String LOC = "loc";
+    static public String IP = "ip";
 
 }

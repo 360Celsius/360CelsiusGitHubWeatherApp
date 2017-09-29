@@ -5,8 +5,10 @@ import android.util.Log;
 import com.celsius.responce.objects.BaseObj;
 import com.celsius.responce.objects.CloudsObj;
 import com.celsius.responce.objects.CoordObj;
+import com.celsius.responce.objects.CurrentLocationObj;
 import com.celsius.responce.objects.CurrentWeather;
 import com.celsius.responce.objects.DtObj;
+import com.celsius.responce.objects.ExternalIPObj;
 import com.celsius.responce.objects.FiveDaysWeather;
 import com.celsius.responce.objects.FiveDaysWeatherItemObj;
 import com.celsius.responce.objects.IdObj;
@@ -271,6 +273,54 @@ public class JSONParser {
         } catch (JSONException e) {
             e.printStackTrace();
             return  null;
+        }
+    }
+
+    public ExternalIPObj getExternalIP (String responce){
+
+        try {
+            JSONObject reader = new JSONObject(responce);
+
+            ExternalIPObj externalIPObj = new ExternalIPObj();
+            externalIPObj.setIp( reader.has(JSONDictionary.IP)&&!reader.isNull(JSONDictionary.IP) ?  reader.getString(JSONDictionary.IP):""   );
+            externalIPObj.setHostname( reader.has(JSONDictionary.HOST_MANE)&&!reader.isNull(JSONDictionary.HOST_MANE) ? reader.getString(JSONDictionary.HOST_MANE):"" );
+            externalIPObj.setCity( reader.has(JSONDictionary.CITY)&&!reader.isNull(JSONDictionary.CITY) ? reader.getString(JSONDictionary.CITY):"" );
+            externalIPObj.setRegion( reader.has(JSONDictionary.REGION)&&!reader.isNull(JSONDictionary.REGION) ? reader.getString(JSONDictionary.REGION):"" );
+            externalIPObj.setCountry( reader.has(JSONDictionary.COUNTRY)&&!reader.isNull(JSONDictionary.COUNTRY) ? reader.getString(JSONDictionary.COUNTRY):"");
+            externalIPObj.setLoc( reader.has(JSONDictionary.LOC)&&!reader.isNull(JSONDictionary.LOC) ? reader.getString(JSONDictionary.LOC):"");
+            externalIPObj.setOrg( reader.has(JSONDictionary.ORG)&&!reader.isNull(JSONDictionary.ORG) ? reader.getString(JSONDictionary.ORG):"");
+
+            return externalIPObj;
+        } catch (JSONException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public CurrentLocationObj getCurrentLocation(String responce){
+
+        try{
+            JSONObject reader = new JSONObject(responce);
+            CurrentLocationObj currentLocationObj = new CurrentLocationObj();
+            //currentLocationObj.setAs(reader.getString(JSONDictionary.AS));
+            currentLocationObj.setCity(reader.getString(JSONDictionary.CITY));
+            currentLocationObj.setCountry(reader.getString(JSONDictionary.COUNTRY));
+            currentLocationObj.setCountryCode(reader.getString(JSONDictionary.COUNTRY_CODE));
+            currentLocationObj.setIsp(reader.getString(JSONDictionary.ISP));
+            currentLocationObj.setLat(reader.getString(JSONDictionary.LAT));
+            currentLocationObj.setLan(reader.getString(JSONDictionary.LON));
+            currentLocationObj.setOrg(reader.getString(JSONDictionary.ORG));
+            currentLocationObj.setQuery(reader.getString(JSONDictionary.QUERY));
+            currentLocationObj.setRegion(reader.getString(JSONDictionary.REGION));
+            currentLocationObj.setRegionName(reader.getString(JSONDictionary.REGION_NAME));
+            currentLocationObj.setStatus(reader.getString(JSONDictionary.STATUS));
+            currentLocationObj.setTimezone(reader.getString(JSONDictionary.TIME_ZONE));
+            currentLocationObj.setZip(reader.getString(JSONDictionary.ZIP));
+
+            return currentLocationObj;
+        }catch (JSONException e){
+            e.printStackTrace();
+            return null;
         }
     }
 
