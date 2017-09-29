@@ -16,6 +16,8 @@ import com.celsius.recivers.ResponseReceiver;
 import com.celsius.services.WeatherPullService;
 import com.celsius.services.WeatherPullServicePutExtraKry;
 
+import com.crashlytics.android.Crashlytics;
+import io.fabric.sdk.android.Fabric;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.URL;
@@ -31,6 +33,7 @@ public class LiveActivity extends BaseActivity implements DBHelperListenerInterf
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Fabric.with(this, new Crashlytics());
         setContentView(R.layout.live_activity);
 
         //get external ip

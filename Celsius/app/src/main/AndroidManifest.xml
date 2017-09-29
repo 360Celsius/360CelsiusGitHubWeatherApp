@@ -26,6 +26,9 @@
             android:name="com.celsius.services.WeatherPullService"
             android:exported="false"/>
         <receiver android:name="com.celsius.recivers.ResponseReceiver" />
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="9ecbc9081c1969bcad78d5a3eaa12bff52f76f78" />
     </application>
 
 </manifest>
