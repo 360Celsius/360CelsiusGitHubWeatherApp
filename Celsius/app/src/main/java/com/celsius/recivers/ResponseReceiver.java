@@ -27,34 +27,30 @@ public class ResponseReceiver extends BroadcastReceiver {
 
         FragmentTransaction ft =   ((AppCompatActivity) context).getSupportFragmentManager().beginTransaction();
 
+//        if(((AppCompatActivity) context).getSupportFragmentManager().findFragmentById(R.id.main_weather_info_placeholder) != null) {
+//            ft.remove(((AppCompatActivity) context).getSupportFragmentManager().findFragmentById(R.id.main_weather_info_placeholder));
+//        }
+
+        if(((AppCompatActivity) context).getSupportFragmentManager().findFragmentById(R.id.choosen_wheather_fragment_placeholder) != null) {
+            ft.remove(((AppCompatActivity) context).getSupportFragmentManager().findFragmentById(R.id.choosen_wheather_fragment_placeholder));
+        }
+
         if(intent.getStringExtra(WeatherPullServicePutExtraKry.GET_WEATHER_ACTION_KEY).equalsIgnoreCase(WeatherPullServicePutExtraKry.GET_THREE_DAYS_WEATHER_DATA)) {
             ft.replace(R.id.choosen_wheather_fragment_placeholder, new ThreeDaysWeatherDataFragment());
-            ft.commit();
             //Log.e("ServiceTest","I am Here ResponseReceiver -> "+intent.getStringExtra(WeatherPullServicePutExtraKry.GET_MAIN_INFO_WEATHER_DATA) );
         }else if(intent.getStringExtra(WeatherPullServicePutExtraKry.GET_WEATHER_ACTION_KEY).equalsIgnoreCase(WeatherPullServicePutExtraKry.GET_MAIN_INFO_WEATHER_DATA)) {
             ft.replace(R.id.main_weather_info_placeholder, new MainInfoWeatherDataFragment());
-            ft.commit();
-            //Log.e("ServiceTest","I am Here ResponseReceiver -> "+intent.getStringExtra(WeatherPullServicePutExtraKry.GET_MAIN_INFO_WEATHER_DATA) );
         }else if(intent.getStringExtra(WeatherPullServicePutExtraKry.GET_WEATHER_ACTION_KEY).equalsIgnoreCase(WeatherPullServicePutExtraKry.GET_CURRENT_WEATHER_DATA)){
             ft.replace(R.id.choosen_wheather_fragment_placeholder, new ThreeDaysWeatherDataFragment());
-            ft.commit();
-            //Log.e("ServiceTest","I am Here ResponseReceiver -> "+intent.getStringExtra(WeatherPullServicePutExtraKry.CURRENT_WEATHER_DATA_RESPONCE) );
-
         }else if(intent.getStringExtra(WeatherPullServicePutExtraKry.GET_WEATHER_ACTION_KEY).equalsIgnoreCase(WeatherPullServicePutExtraKry.GET_FIVE_DAYS_WEATHER_DATA)){
             ft.replace(R.id.choosen_wheather_fragment_placeholder, new FIveDaysWeatherDataFragment());
-            ft.commit();
-            //Log.e("ServiceTest","I am Here ResponseReceiver -> "+intent.getStringExtra(WeatherPullServicePutExtraKry.FIVE_DAY_WEATHER_FORCAST_DATA_RESPONCE) );
-
         }else if(intent.getStringExtra(WeatherPullServicePutExtraKry.GET_WEATHER_ACTION_KEY).equalsIgnoreCase(WeatherPullServicePutExtraKry.GET_SIXTEEN_DAYS_WEATHER_DATA)){
             ft.replace(R.id.choosen_wheather_fragment_placeholder, new SixteenDaysWeatherDataFragment());
-            ft.commit();
-            //Log.e("ServiceTest","I am Here ResponseReceiver -> "+intent.getStringExtra(WeatherPullServicePutExtraKry.SIXTEEN_DAY_WEATHER_FORCAST_DATA_RESPONCE) );
         }else if(intent.getStringExtra(WeatherPullServicePutExtraKry.GET_WEATHER_ACTION_KEY).equalsIgnoreCase(WeatherPullServicePutExtraKry.GET_EXTERNAL_IP_DATA)){
             //get external ip
             Intent msgIntentGetExternalIP = new Intent(context.getApplicationContext(), WeatherPullService.class);
             msgIntentGetExternalIP.putExtra(WeatherPullServicePutExtraKry.GET_WEATHER_ACTION_KEY, WeatherPullServicePutExtraKry.GET_LOCATION_BY_EXTERNAL_IP_DATA);
             context.startService(msgIntentGetExternalIP);
-
         }else if(intent.getStringExtra(WeatherPullServicePutExtraKry.GET_WEATHER_ACTION_KEY).equalsIgnoreCase(WeatherPullServicePutExtraKry.GET_LOCATION_BY_EXTERNAL_IP_DATA)){
 
             //get main info data
@@ -68,6 +64,7 @@ public class ResponseReceiver extends BroadcastReceiver {
             context.startService(msgIntentFiveDaysData);
         }
 
+        ft.commit();
 
 
     }
