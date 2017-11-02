@@ -27,14 +27,6 @@ public class ResponseReceiver extends BroadcastReceiver {
 
         FragmentTransaction ft =   ((AppCompatActivity) context).getSupportFragmentManager().beginTransaction();
 
-//        if(((AppCompatActivity) context).getSupportFragmentManager().findFragmentById(R.id.main_weather_info_placeholder) != null) {
-//            ft.remove(((AppCompatActivity) context).getSupportFragmentManager().findFragmentById(R.id.main_weather_info_placeholder));
-//        }
-
-        if(((AppCompatActivity) context).getSupportFragmentManager().findFragmentById(R.id.choosen_wheather_fragment_placeholder) != null) {
-            ft.remove(((AppCompatActivity) context).getSupportFragmentManager().findFragmentById(R.id.choosen_wheather_fragment_placeholder));
-        }
-
         if(intent.getStringExtra(WeatherPullServicePutExtraKry.GET_WEATHER_ACTION_KEY).equalsIgnoreCase(WeatherPullServicePutExtraKry.GET_THREE_DAYS_WEATHER_DATA)) {
             ft.replace(R.id.choosen_wheather_fragment_placeholder, new ThreeDaysWeatherDataFragment());
             //Log.e("ServiceTest","I am Here ResponseReceiver -> "+intent.getStringExtra(WeatherPullServicePutExtraKry.GET_MAIN_INFO_WEATHER_DATA) );

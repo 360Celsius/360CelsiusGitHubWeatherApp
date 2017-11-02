@@ -21,7 +21,7 @@ import java.util.ArrayList;
  * Created by dennisshar on 27/08/2017.
  */
 
-public class ThreeDaysWeatherDataFragment extends Fragment{
+public class ThreeDaysWeatherDataFragment extends Fragment {
 
 
     private DBHelperListenerInterface mCallback;
@@ -79,7 +79,7 @@ public class ThreeDaysWeatherDataFragment extends Fragment{
 
         fiveDaysWeatherList = new ArrayList<>();
         fiveDaysWeatherList = mCallback.getDBhelper().getFiveDaysWeather();
-        threeDayWeatherList = Tools.fiveDaysfilteredList(fiveDaysWeatherList,3);
+        threeDayWeatherList = Tools.fiveDaysfilteredList(fiveDaysWeatherList, 3);
 
 
         //Log.e("dbquerytest","answer - > "+currentWeatherList.get(0).getHumidity());
@@ -91,23 +91,32 @@ public class ThreeDaysWeatherDataFragment extends Fragment{
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        day_one_name.setText(Tools.dayNameFromTimeStamp(threeDayWeatherList.get(0).getDt()));
-        day_one_date.setText(Tools.dateFromTimeStamp(threeDayWeatherList.get(0).getDt()));
-        day_one_wheather_indicator_icon.setImageDrawable(getResources().getDrawable(Tools.convertDescriptionToImageWeather(getActivity().getApplicationContext(),threeDayWeatherList.get(0).getIcon())));
-        day_one_weather_discription.setText(threeDayWeatherList.get(0).getDescription().toUpperCase());
-        day_one_min_max_temp.setText(threeDayWeatherList.get(0).getTemp_max()+"\u2103"+" / "+threeDayWeatherList.get(0).getTemp_min().toUpperCase()+"\u2103");
+        if (Tools.dateFromTimeStamp(threeDayWeatherList.get(0).getDt()) != null && threeDayWeatherList.get(0).getIcon() != null && threeDayWeatherList.get(0).getTemp_max() != null && threeDayWeatherList.get(0).getTemp_min().toUpperCase() != null) {
 
-        day_two_name.setText(Tools.dayNameFromTimeStamp(threeDayWeatherList.get(1).getDt()));
-        day_two_date.setText(Tools.dateFromTimeStamp(threeDayWeatherList.get(1).getDt()));
-        day_two_wheather_indicator_icon.setImageDrawable(getResources().getDrawable(Tools.convertDescriptionToImageWeather(getActivity().getApplicationContext(),threeDayWeatherList.get(1).getIcon())));
-        day_two_weather_discription.setText(threeDayWeatherList.get(1).getDescription().toUpperCase());
-        day_two_min_max_temp.setText(threeDayWeatherList.get(1).getTemp_max()+"\u2103"+" / "+threeDayWeatherList.get(1).getTemp_min().toUpperCase()+"\u2103");
+            day_one_name.setText(Tools.dayNameFromTimeStamp(threeDayWeatherList.get(0).getDt()));
+            day_one_date.setText(Tools.dateFromTimeStamp(threeDayWeatherList.get(0).getDt()));
+            day_one_wheather_indicator_icon.setImageDrawable(getResources().getDrawable(Tools.convertDescriptionToImageWeather(getActivity().getApplicationContext(), threeDayWeatherList.get(0).getIcon())));
+            day_one_weather_discription.setText(threeDayWeatherList.get(0).getDescription().toUpperCase());
+            day_one_min_max_temp.setText(threeDayWeatherList.get(0).getTemp_max() + "\u2103" + " / " + threeDayWeatherList.get(0).getTemp_min().toUpperCase() + "\u2103");
+        }
 
-        day_three_name.setText(Tools.dayNameFromTimeStamp(threeDayWeatherList.get(2).getDt()));
-        day_three_date.setText(Tools.dateFromTimeStamp(threeDayWeatherList.get(2).getDt()));
-        day_three_wheather_indicator_icon.setImageDrawable(getResources().getDrawable(Tools.convertDescriptionToImageWeather(getActivity().getApplicationContext(),threeDayWeatherList.get(2).getIcon())));
-        day_three_weather_discription.setText(threeDayWeatherList.get(2).getDescription().toUpperCase());
-        day_three_min_max_temp.setText(threeDayWeatherList.get(2).getTemp_max()+"\u2103"+" / "+threeDayWeatherList.get(2).getTemp_min().toUpperCase()+"\u2103");
+        if (Tools.dateFromTimeStamp(threeDayWeatherList.get(1).getDt()) != null && threeDayWeatherList.get(1).getIcon() != null && threeDayWeatherList.get(1).getTemp_max() != null && threeDayWeatherList.get(1).getTemp_min().toUpperCase() != null) {
+
+            day_two_name.setText(Tools.dayNameFromTimeStamp(threeDayWeatherList.get(1).getDt()));
+            day_two_date.setText(Tools.dateFromTimeStamp(threeDayWeatherList.get(1).getDt()));
+            day_two_wheather_indicator_icon.setImageDrawable(getResources().getDrawable(Tools.convertDescriptionToImageWeather(getActivity().getApplicationContext(), threeDayWeatherList.get(1).getIcon())));
+            day_two_weather_discription.setText(threeDayWeatherList.get(1).getDescription().toUpperCase());
+            day_two_min_max_temp.setText(threeDayWeatherList.get(1).getTemp_max() + "\u2103" + " / " + threeDayWeatherList.get(1).getTemp_min().toUpperCase() + "\u2103");
+        }
+
+        if (Tools.dateFromTimeStamp(threeDayWeatherList.get(2).getDt()) != null && threeDayWeatherList.get(2).getIcon() != null && threeDayWeatherList.get(2).getTemp_max() != null && threeDayWeatherList.get(2).getTemp_min().toUpperCase() != null) {
+
+            day_three_name.setText(Tools.dayNameFromTimeStamp(threeDayWeatherList.get(2).getDt()));
+            day_three_date.setText(Tools.dateFromTimeStamp(threeDayWeatherList.get(2).getDt()));
+            day_three_wheather_indicator_icon.setImageDrawable(getResources().getDrawable(Tools.convertDescriptionToImageWeather(getActivity().getApplicationContext(), threeDayWeatherList.get(2).getIcon())));
+            day_three_weather_discription.setText(threeDayWeatherList.get(2).getDescription().toUpperCase());
+            day_three_min_max_temp.setText(threeDayWeatherList.get(2).getTemp_max() + "\u2103" + " / " + threeDayWeatherList.get(2).getTemp_min().toUpperCase() + "\u2103");
+        }
 
         //day_three_wheather_indicator_icon.setImageDrawable(Tools.convertDescriptionToImageWeather(getActivity().getApplicationContext(),fiveDaysWeatherList.get(2).getDescription()));
     }

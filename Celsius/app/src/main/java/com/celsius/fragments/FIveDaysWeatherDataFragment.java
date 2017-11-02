@@ -21,7 +21,7 @@ import java.util.ArrayList;
  * Created by dennisshar on 27/08/2017.
  */
 
-public class FIveDaysWeatherDataFragment extends Fragment{
+public class FIveDaysWeatherDataFragment extends Fragment {
 
     private DBHelperListenerInterface mCallback;
     private ArrayList<FiveDaysWeatherQueryResponce> fiveDaysWeatherList;
@@ -57,7 +57,6 @@ public class FIveDaysWeatherDataFragment extends Fragment{
     private ImageView day_five_wheather_indicator_icon;
     private TextView day_five_weather_discription;
     private TextView day_five_min_max_temp;
-
 
 
     @Override
@@ -107,46 +106,59 @@ public class FIveDaysWeatherDataFragment extends Fragment{
 
         fiveDaysWeatherList = new ArrayList<>();
         fiveDaysWeatherList = mCallback.getDBhelper().getFiveDaysWeather();
-        onlyFiveDaysWeatherList = Tools.fiveDaysfilteredList(fiveDaysWeatherList,5);
+        onlyFiveDaysWeatherList = Tools.fiveDaysfilteredList(fiveDaysWeatherList, 5);
 
     }
-
 
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        day_one_name.setText(Tools.dayNameFromTimeStamp(onlyFiveDaysWeatherList.get(0).getDt()));
-        day_one_date.setText(Tools.dateFromTimeStamp(onlyFiveDaysWeatherList.get(0).getDt()));
-        day_one_wheather_indicator_icon.setImageDrawable(getResources().getDrawable(Tools.convertDescriptionToImageWeather(getActivity().getApplicationContext(),onlyFiveDaysWeatherList.get(0).getIcon())));
-        day_one_weather_discription.setText(onlyFiveDaysWeatherList.get(0).getDescription().toUpperCase());
-        day_one_min_max_temp.setText(onlyFiveDaysWeatherList.get(0).getTemp_max()+"\u2103"+" / "+onlyFiveDaysWeatherList.get(0).getTemp_min().toUpperCase()+"\u2103");
+        if (Tools.dateFromTimeStamp(onlyFiveDaysWeatherList.get(0).getDt()) != null && onlyFiveDaysWeatherList.get(0).getIcon() != null && onlyFiveDaysWeatherList.get(0).getTemp_max() != null && onlyFiveDaysWeatherList.get(0).getTemp_min().toUpperCase() != null) {
 
-        day_two_name.setText(Tools.dayNameFromTimeStamp(onlyFiveDaysWeatherList.get(1).getDt()));
-        day_two_date.setText(Tools.dateFromTimeStamp(onlyFiveDaysWeatherList.get(1).getDt()));
-        day_two_wheather_indicator_icon.setImageDrawable(getResources().getDrawable(Tools.convertDescriptionToImageWeather(getActivity().getApplicationContext(),onlyFiveDaysWeatherList.get(1).getIcon())));
-        day_two_weather_discription.setText(onlyFiveDaysWeatherList.get(1).getDescription().toUpperCase());
-        day_two_min_max_temp.setText(onlyFiveDaysWeatherList.get(1).getTemp_max()+"\u2103"+" / "+onlyFiveDaysWeatherList.get(1).getTemp_min().toUpperCase()+"\u2103");
+            day_one_name.setText(Tools.dayNameFromTimeStamp(onlyFiveDaysWeatherList.get(0).getDt()));
+            day_one_date.setText(Tools.dateFromTimeStamp(onlyFiveDaysWeatherList.get(0).getDt()));
+            day_one_wheather_indicator_icon.setImageDrawable(getResources().getDrawable(Tools.convertDescriptionToImageWeather(getActivity().getApplicationContext(), onlyFiveDaysWeatherList.get(0).getIcon())));
+            day_one_weather_discription.setText(onlyFiveDaysWeatherList.get(0).getDescription().toUpperCase());
+            day_one_min_max_temp.setText(onlyFiveDaysWeatherList.get(0).getTemp_max() + "\u2103" + " / " + onlyFiveDaysWeatherList.get(0).getTemp_min().toUpperCase() + "\u2103");
+        }
 
-        day_three_name.setText(Tools.dayNameFromTimeStamp(onlyFiveDaysWeatherList.get(2).getDt()));
-        day_three_date.setText(Tools.dateFromTimeStamp(onlyFiveDaysWeatherList.get(2).getDt()));
-        day_three_wheather_indicator_icon.setImageDrawable(getResources().getDrawable(Tools.convertDescriptionToImageWeather(getActivity().getApplicationContext(),onlyFiveDaysWeatherList.get(2).getIcon())));
-        day_three_weather_discription.setText(onlyFiveDaysWeatherList.get(2).getDescription().toUpperCase());
-        day_three_min_max_temp.setText(onlyFiveDaysWeatherList.get(2).getTemp_max()+"\u2103"+" / "+onlyFiveDaysWeatherList.get(2).getTemp_min().toUpperCase()+"\u2103");
+        if (Tools.dateFromTimeStamp(onlyFiveDaysWeatherList.get(1).getDt()) != null && onlyFiveDaysWeatherList.get(1).getIcon() != null && onlyFiveDaysWeatherList.get(1).getTemp_max() != null && onlyFiveDaysWeatherList.get(1).getTemp_min().toUpperCase() != null) {
 
-        day_four_name.setText(Tools.dayNameFromTimeStamp(onlyFiveDaysWeatherList.get(3).getDt()));
-        day_four_date.setText(Tools.dateFromTimeStamp(onlyFiveDaysWeatherList.get(3).getDt()));
-        day_four_wheather_indicator_icon.setImageDrawable(getResources().getDrawable(Tools.convertDescriptionToImageWeather(getActivity().getApplicationContext(),onlyFiveDaysWeatherList.get(3).getIcon())));
-        day_four_weather_discription.setText(onlyFiveDaysWeatherList.get(3).getDescription().toUpperCase());
-        day_four_min_max_temp.setText(onlyFiveDaysWeatherList.get(3).getTemp_max()+"\u2103"+" / "+onlyFiveDaysWeatherList.get(3).getTemp_min().toUpperCase()+"\u2103");
+            day_two_name.setText(Tools.dayNameFromTimeStamp(onlyFiveDaysWeatherList.get(1).getDt()));
+            day_two_date.setText(Tools.dateFromTimeStamp(onlyFiveDaysWeatherList.get(1).getDt()));
+            day_two_wheather_indicator_icon.setImageDrawable(getResources().getDrawable(Tools.convertDescriptionToImageWeather(getActivity().getApplicationContext(), onlyFiveDaysWeatherList.get(1).getIcon())));
+            day_two_weather_discription.setText(onlyFiveDaysWeatherList.get(1).getDescription().toUpperCase());
+            day_two_min_max_temp.setText(onlyFiveDaysWeatherList.get(1).getTemp_max() + "\u2103" + " / " + onlyFiveDaysWeatherList.get(1).getTemp_min().toUpperCase() + "\u2103");
+        }
 
+        if (Tools.dateFromTimeStamp(onlyFiveDaysWeatherList.get(2).getDt()) != null && onlyFiveDaysWeatherList.get(2).getIcon() != null && onlyFiveDaysWeatherList.get(2).getTemp_max() != null && onlyFiveDaysWeatherList.get(2).getTemp_min().toUpperCase() != null) {
 
-        day_five_name.setText(Tools.dayNameFromTimeStamp(onlyFiveDaysWeatherList.get(4).getDt()));
-        day_five_date.setText(Tools.dateFromTimeStamp(onlyFiveDaysWeatherList.get(4).getDt()));
-        day_five_wheather_indicator_icon.setImageDrawable(getResources().getDrawable(Tools.convertDescriptionToImageWeather(getActivity().getApplicationContext(),onlyFiveDaysWeatherList.get(4).getIcon())));
-        day_five_weather_discription.setText(onlyFiveDaysWeatherList.get(4).getDescription().toUpperCase());
-        day_five_min_max_temp.setText(onlyFiveDaysWeatherList.get(4).getTemp_max()+"\u2103"+" / "+onlyFiveDaysWeatherList.get(4).getTemp_min().toUpperCase()+"\u2103");
+            day_three_name.setText(Tools.dayNameFromTimeStamp(onlyFiveDaysWeatherList.get(2).getDt()));
+            day_three_date.setText(Tools.dateFromTimeStamp(onlyFiveDaysWeatherList.get(2).getDt()));
+            day_three_wheather_indicator_icon.setImageDrawable(getResources().getDrawable(Tools.convertDescriptionToImageWeather(getActivity().getApplicationContext(), onlyFiveDaysWeatherList.get(2).getIcon())));
+            day_three_weather_discription.setText(onlyFiveDaysWeatherList.get(2).getDescription().toUpperCase());
+            day_three_min_max_temp.setText(onlyFiveDaysWeatherList.get(2).getTemp_max() + "\u2103" + " / " + onlyFiveDaysWeatherList.get(2).getTemp_min().toUpperCase() + "\u2103");
+        }
+
+        if (Tools.dateFromTimeStamp(onlyFiveDaysWeatherList.get(3).getDt()) != null && onlyFiveDaysWeatherList.get(3).getIcon() != null && onlyFiveDaysWeatherList.get(3).getTemp_max() != null && onlyFiveDaysWeatherList.get(3).getTemp_min().toUpperCase() != null) {
+
+            day_four_name.setText(Tools.dayNameFromTimeStamp(onlyFiveDaysWeatherList.get(3).getDt()));
+            day_four_date.setText(Tools.dateFromTimeStamp(onlyFiveDaysWeatherList.get(3).getDt()));
+            day_four_wheather_indicator_icon.setImageDrawable(getResources().getDrawable(Tools.convertDescriptionToImageWeather(getActivity().getApplicationContext(), onlyFiveDaysWeatherList.get(3).getIcon())));
+            day_four_weather_discription.setText(onlyFiveDaysWeatherList.get(3).getDescription().toUpperCase());
+            day_four_min_max_temp.setText(onlyFiveDaysWeatherList.get(3).getTemp_max() + "\u2103" + " / " + onlyFiveDaysWeatherList.get(3).getTemp_min().toUpperCase() + "\u2103");
+        }
+
+        if (Tools.dateFromTimeStamp(onlyFiveDaysWeatherList.get(4).getDt()) != null && onlyFiveDaysWeatherList.get(4).getIcon() != null && onlyFiveDaysWeatherList.get(4).getTemp_max() != null && onlyFiveDaysWeatherList.get(4).getTemp_min().toUpperCase() != null) {
+
+            day_five_name.setText(Tools.dayNameFromTimeStamp(onlyFiveDaysWeatherList.get(4).getDt()));
+            day_five_date.setText(Tools.dateFromTimeStamp(onlyFiveDaysWeatherList.get(4).getDt()));
+            day_five_wheather_indicator_icon.setImageDrawable(getResources().getDrawable(Tools.convertDescriptionToImageWeather(getActivity().getApplicationContext(), onlyFiveDaysWeatherList.get(4).getIcon())));
+            day_five_weather_discription.setText(onlyFiveDaysWeatherList.get(4).getDescription().toUpperCase());
+            day_five_min_max_temp.setText(onlyFiveDaysWeatherList.get(4).getTemp_max() + "\u2103" + " / " + onlyFiveDaysWeatherList.get(4).getTemp_min().toUpperCase() + "\u2103");
+        }
 
         //day_three_wheather_indicator_icon.setImageDrawable(Tools.convertDescriptionToImageWeather(getActivity().getApplicationContext(),fiveDaysWeatherList.get(2).getDescription()));
     }
