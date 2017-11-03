@@ -20,6 +20,13 @@
             android:layout_height="match_parent">
         </FrameLayout>
 
+        <ProgressBar
+            android:id="@+id/list_spinner_main"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_centerInParent="true"
+            android:indeterminateDrawable="@drawable/progress_bar"
+            android:visibility="visible"/>
 
     </RelativeLayout>
 
@@ -109,7 +116,18 @@
             android:layout_height="match_parent"
             android:layout_below="@+id/buttons_bottom_seperator"></FrameLayout>
 
+
+        <ProgressBar
+            android:id="@+id/list_spinner_sub"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_centerInParent="true"
+            android:indeterminateDrawable="@drawable/progress_bar"
+            android:visibility="visible"/>
+
     </RelativeLayout>
+
+
 
 
 </LinearLayout>

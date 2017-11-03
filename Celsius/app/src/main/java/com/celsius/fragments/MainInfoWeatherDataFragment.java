@@ -3,10 +3,7 @@ package com.celsius.fragments;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.text.Html;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,7 +14,7 @@ import com.ahrenheit.celsius.activities.R;
 import com.celsius.dbhelper.CurrentLocationQueryResponce;
 import com.celsius.dbhelper.CurrentWeatherQueryResponce;
 import com.celsius.interfaces.DBHelperListenerInterface;
-import com.celsius.responce.objects.CurrentLocationObj;
+import com.celsius.interfaces.SpinnerInterface;
 import com.celsius.services.WeatherPullService;
 import com.celsius.services.WeatherPullServicePutExtraKry;
 import com.celsius.utils.Tools;
@@ -47,6 +44,8 @@ public class MainInfoWeatherDataFragment extends Fragment {
     private TextView atmosphericPressure;
     private TextView humidity;
     private TextView avgTempDescription;
+
+    private SpinnerInterface mainSpinnerCallback;
 
 
     @Override
@@ -85,6 +84,7 @@ public class MainInfoWeatherDataFragment extends Fragment {
     public void onAttach(Activity activity) {
         super.onAttach(activity);
         mCallback = (DBHelperListenerInterface) activity;
+        mainSpinnerCallback = (SpinnerInterface) activity;
 
         currentWeatherList = new ArrayList<>();
         currentWeatherList = mCallback.getDBhelper().getCurrentWeather();
@@ -93,6 +93,7 @@ public class MainInfoWeatherDataFragment extends Fragment {
         currentLocationQueryResponce.setCity(mCallback.getDBhelper().getCurrentLocationDATA().getCity());
 
        // Log.e("dbquerytest","answer - > "+currentWeatherList.get(0).getHumidity());
+        mainSpinnerCallback.getMainSpinner().setVisibility(View.INVISIBLE);
 
     }
 

@@ -13,6 +13,7 @@ import android.widget.TextView;
 import com.ahrenheit.celsius.activities.R;
 import com.celsius.dbhelper.FiveDaysWeatherQueryResponce;
 import com.celsius.interfaces.DBHelperListenerInterface;
+import com.celsius.interfaces.SpinnerInterface;
 import com.celsius.utils.Tools;
 
 import java.util.ArrayList;
@@ -46,6 +47,9 @@ public class ThreeDaysWeatherDataFragment extends Fragment {
     private TextView day_three_weather_discription;
     private TextView day_three_min_max_temp;
 
+    private SpinnerInterface subSpinnerCallback;
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle savedInstanceState) {
         // Defines the xml file for the fragment
@@ -76,11 +80,13 @@ public class ThreeDaysWeatherDataFragment extends Fragment {
     public void onAttach(Activity activity) {
         super.onAttach(activity);
         mCallback = (DBHelperListenerInterface) activity;
+        subSpinnerCallback = (SpinnerInterface) activity;
 
         fiveDaysWeatherList = new ArrayList<>();
         fiveDaysWeatherList = mCallback.getDBhelper().getFiveDaysWeather();
         threeDayWeatherList = Tools.fiveDaysfilteredList(fiveDaysWeatherList, 3);
 
+        subSpinnerCallback.getSubSpinner().setVisibility(View.INVISIBLE);
 
         //Log.e("dbquerytest","answer - > "+currentWeatherList.get(0).getHumidity());
 

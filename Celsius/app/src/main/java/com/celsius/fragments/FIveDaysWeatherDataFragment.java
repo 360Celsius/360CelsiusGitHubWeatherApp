@@ -13,6 +13,7 @@ import android.widget.TextView;
 import com.ahrenheit.celsius.activities.R;
 import com.celsius.dbhelper.FiveDaysWeatherQueryResponce;
 import com.celsius.interfaces.DBHelperListenerInterface;
+import com.celsius.interfaces.SpinnerInterface;
 import com.celsius.utils.Tools;
 
 import java.util.ArrayList;
@@ -57,6 +58,9 @@ public class FIveDaysWeatherDataFragment extends Fragment {
     private ImageView day_five_wheather_indicator_icon;
     private TextView day_five_weather_discription;
     private TextView day_five_min_max_temp;
+
+    private SpinnerInterface subSpinnerCallback;
+
 
 
     @Override
@@ -103,10 +107,14 @@ public class FIveDaysWeatherDataFragment extends Fragment {
     public void onAttach(Activity activity) {
         super.onAttach(activity);
         mCallback = (DBHelperListenerInterface) activity;
+        subSpinnerCallback = (SpinnerInterface) activity;
 
         fiveDaysWeatherList = new ArrayList<>();
         fiveDaysWeatherList = mCallback.getDBhelper().getFiveDaysWeather();
         onlyFiveDaysWeatherList = Tools.fiveDaysfilteredList(fiveDaysWeatherList, 5);
+
+        subSpinnerCallback.getSubSpinner().setVisibility(View.INVISIBLE);
+
 
     }
 

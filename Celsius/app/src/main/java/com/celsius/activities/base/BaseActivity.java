@@ -4,8 +4,12 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.ProgressBar;
+import android.widget.Spinner;
 
+import com.ahrenheit.celsius.activities.R;
 import com.celsius.dbhelper.DatabaseHelper;
+import com.celsius.interfaces.SpinnerInterface;
 
 /**
  * Created by dennisshar on 04/09/2017.
@@ -14,6 +18,8 @@ import com.celsius.dbhelper.DatabaseHelper;
 public class BaseActivity extends AppCompatActivity {
 
     public static DatabaseHelper helper = null;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +35,9 @@ public class BaseActivity extends AppCompatActivity {
 
         helper = DatabaseHelper.getInstance(getApplicationContext());
 
+
+
+
     }
 
     @Override
@@ -43,4 +52,6 @@ public class BaseActivity extends AppCompatActivity {
                         | View.SYSTEM_UI_FLAG_FULLSCREEN // hide status bar
                         | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
     }
+
+
 }

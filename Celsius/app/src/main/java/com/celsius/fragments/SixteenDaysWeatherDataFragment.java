@@ -16,6 +16,7 @@ import com.celsius.dbhelper.DatabaseHelper;
 import com.celsius.dbhelper.FiveDaysWeatherQueryResponce;
 import com.celsius.dbhelper.SixTeenDaysWeatherQueryResponce;
 import com.celsius.interfaces.DBHelperListenerInterface;
+import com.celsius.interfaces.SpinnerInterface;
 import com.celsius.utils.Tools;
 
 import java.util.ArrayList;
@@ -95,6 +96,9 @@ public class SixteenDaysWeatherDataFragment extends Fragment {
     private ImageView day_sixteen_wheather_indicator_icon;
     private TextView day_sixteen_min_max_temp;
 
+    private SpinnerInterface subSpinnerCallback;
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle savedInstanceState) {
         // Defines the xml file for the fragment
@@ -172,9 +176,14 @@ public class SixteenDaysWeatherDataFragment extends Fragment {
     public void onAttach(Activity activity) {
         super.onAttach(activity);
         mCallback = (DBHelperListenerInterface) activity;
+        subSpinnerCallback = (SpinnerInterface) activity;
+
 
         sixTeenDaysWeatherList = new ArrayList<>();
         sixTeenDaysWeatherList = mCallback.getDBhelper().getSixTeenDaysWeather();
+
+        subSpinnerCallback.getSubSpinner().setVisibility(View.INVISIBLE);
+
     }
 
     @Override

@@ -6,12 +6,14 @@ import android.net.wifi.WifiManager;
 import android.os.Bundle;
 import android.text.format.Formatter;
 import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 
 import com.ahrenheit.celsius.activities.R;
 import com.celsius.activities.base.BaseActivity;
 import com.celsius.dbhelper.DatabaseHelper;
 import com.celsius.interfaces.DBHelperListenerInterface;
+import com.celsius.interfaces.SpinnerInterface;
 import com.celsius.recivers.ResponseReceiver;
 import com.celsius.services.WeatherPullService;
 import com.celsius.services.WeatherPullServicePutExtraKry;
@@ -22,12 +24,15 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.URL;
 
-public class LiveActivity extends BaseActivity implements DBHelperListenerInterface {
+public class LiveActivity extends BaseActivity implements DBHelperListenerInterface,SpinnerInterface {
 
     private ResponseReceiver receiver;
     private RelativeLayout currentButton;
     private RelativeLayout fiveDaysButton;
     private RelativeLayout sixteenDaysButton;
+
+    public ProgressBar listSpinnerSub = null;
+    public ProgressBar listSpinnerMain = null;
 
 
     @Override
@@ -70,6 +75,13 @@ public class LiveActivity extends BaseActivity implements DBHelperListenerInterf
             }
         });
 
+        listSpinnerMain = (ProgressBar) findViewById(R.id.list_spinner_main);
+        listSpinnerSub = (ProgressBar) findViewById(R.id.list_spinner_sub);
+
+        listSpinnerSub.setVisibility(View.VISIBLE);
+        listSpinnerMain.setVisibility(View.VISIBLE);
+
+
     }
 
     @Override
@@ -90,6 +102,16 @@ public class LiveActivity extends BaseActivity implements DBHelperListenerInterf
     @Override
     public DatabaseHelper getDBhelper() {
         return helper;
+    }
+
+    @Override
+    public ProgressBar getMainSpinner() {
+        return listSpinnerMain;
+    }
+
+    @Override
+    public ProgressBar getSubSpinner() {
+        return listSpinnerSub;
     }
 
 }

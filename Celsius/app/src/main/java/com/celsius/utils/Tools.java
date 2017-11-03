@@ -23,7 +23,7 @@ public class Tools {
     public static int convertDescriptionToImageWeather(Context context, String icon){
 
         int imageResource = 0;
-
+        icon = icon.substring(0,3);
         if(icon.equalsIgnoreCase("01d")||icon.equalsIgnoreCase("01n")){
             imageResource = context.getResources().getIdentifier("clear_sky", "drawable", context.getPackageName());
         }else if (icon.equalsIgnoreCase("02d")||icon.equalsIgnoreCase("02n")){
