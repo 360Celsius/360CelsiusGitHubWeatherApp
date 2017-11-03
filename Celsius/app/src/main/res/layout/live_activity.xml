@@ -59,6 +59,7 @@
                 android:layout_weight="1">
 
                 <TextView
+                    android:id="@+id/currentButtonText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
@@ -75,6 +76,7 @@
                 android:layout_weight="1">
 
                 <TextView
+                    android:id="@+id/fiveDaysButtonText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
@@ -92,6 +94,7 @@
                 android:layout_weight="1">
 
                 <TextView
+                    android:id="@+id/sixTeenDaysButtonText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"

@@ -2,12 +2,14 @@ package com.celsius.activities;
 
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.graphics.Color;
 import android.net.wifi.WifiManager;
 import android.os.Bundle;
 import android.text.format.Formatter;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.ahrenheit.celsius.activities.R;
 import com.celsius.activities.base.BaseActivity;
@@ -31,6 +33,10 @@ public class LiveActivity extends BaseActivity implements DBHelperListenerInterf
     private RelativeLayout fiveDaysButton;
     private RelativeLayout sixteenDaysButton;
 
+    private TextView currentButtonText;
+    private TextView fiveDaysButtonText;
+    private TextView sixteenDaysButtonText;
+
     public ProgressBar listSpinnerSub = null;
     public ProgressBar listSpinnerMain = null;
 
@@ -41,17 +47,27 @@ public class LiveActivity extends BaseActivity implements DBHelperListenerInterf
         Fabric.with(this, new Crashlytics());
         setContentView(R.layout.live_activity);
 
+        currentButtonText = (TextView) findViewById(R.id.currentButtonText);
+        fiveDaysButtonText = (TextView) findViewById(R.id.fiveDaysButtonText);
+        sixteenDaysButtonText = (TextView) findViewById(R.id.sixTeenDaysButtonText);
+
+        currentButtonText.setTextColor(Color.LTGRAY);
+        fiveDaysButtonText.setTextColor(Color.WHITE);
+        fiveDaysButtonText.setTextColor(Color.WHITE);
+
         //get external ip
         Intent msgIntentGetExternalIP = new Intent(getApplicationContext(), WeatherPullService.class);
         msgIntentGetExternalIP.putExtra(WeatherPullServicePutExtraKry.GET_WEATHER_ACTION_KEY, WeatherPullServicePutExtraKry.GET_EXTERNAL_IP_DATA);
         startService(msgIntentGetExternalIP);
-/////////////////////////////////////////////////////
+        /////////////////////////////////////////////////////
 
         currentButton = (RelativeLayout) findViewById(R.id.currentButton);
         currentButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent msgIntent = new Intent(getApplicationContext(), WeatherPullService.class);
+                currentButtonText.setTextColor(Color.LTGRAY);
+                fiveDaysButtonText.setTextColor(Color.WHITE);
+                sixteenDaysButtonText.setTextColor(Color.WHITE);                Intent msgIntent = new Intent(getApplicationContext(), WeatherPullService.class);
                 msgIntent.putExtra(WeatherPullServicePutExtraKry.GET_WEATHER_ACTION_KEY, WeatherPullServicePutExtraKry.GET_CURRENT_WEATHER_DATA);
                 startService(msgIntent);
             }
@@ -60,7 +76,9 @@ public class LiveActivity extends BaseActivity implements DBHelperListenerInterf
         fiveDaysButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent msgIntent = new Intent(getApplicationContext(), WeatherPullService.class);
+                currentButtonText.setTextColor(Color.WHITE);
+                fiveDaysButtonText.setTextColor(Color.LTGRAY);
+                sixteenDaysButtonText.setTextColor(Color.WHITE);                Intent msgIntent = new Intent(getApplicationContext(), WeatherPullService.class);
                 msgIntent.putExtra(WeatherPullServicePutExtraKry.GET_WEATHER_ACTION_KEY, WeatherPullServicePutExtraKry.GET_FIVE_DAYS_WEATHER_DATA);
                 startService(msgIntent);
             }
@@ -69,7 +87,9 @@ public class LiveActivity extends BaseActivity implements DBHelperListenerInterf
         sixteenDaysButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent msgIntent = new Intent(getApplicationContext(), WeatherPullService.class);
+                currentButtonText.setTextColor(Color.WHITE);
+                fiveDaysButtonText.setTextColor(Color.WHITE);
+                sixteenDaysButtonText.setTextColor(Color.LTGRAY);                Intent msgIntent = new Intent(getApplicationContext(), WeatherPullService.class);
                 msgIntent.putExtra(WeatherPullServicePutExtraKry.GET_WEATHER_ACTION_KEY, WeatherPullServicePutExtraKry.GET_SIXTEEN_DAYS_WEATHER_DATA);
                 startService(msgIntent);
             }
